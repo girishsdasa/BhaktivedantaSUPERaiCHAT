@@ -70,6 +70,64 @@ const SimpleOrnament = () => (
   </div>
 );
 
+const ThemeToggle = () => {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const isLight = localStorage.getItem('theme') === 'light' || 
+                    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
+    if (isLight) {
+      document.documentElement.classList.add('light');
+      setIsDark(false);
+    } else {
+      document.documentElement.classList.remove('light');
+      setIsDark(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (isDark) {
+      document.documentElement.classList.add('light');
+      localStorage.setItem('theme', 'light');
+      setIsDark(false);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', '#F9F6EE');
+    } else {
+      document.documentElement.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+      setIsDark(true);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', '#0F0C08');
+    }
+  };
+
+  return (
+    <button 
+      onClick={toggleTheme}
+      className="p-2 border border-brand-gold/30 rounded-full text-brand-gold-bright hover:bg-brand-gold/10 transition-colors ml-4 shadow-[0_0_10px_rgba(212,168,67,0.15)]"
+      aria-label="Toggle Theme"
+    >
+      {isDark ? (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      ) : (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      )}
+    </button>
+  );
+};
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,26 +142,31 @@ const Navbar = () => {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5vw] py-5 transition-all duration-700 ${scrolled ? 'bg-brand-bg/95 backdrop-blur-md border-b border-brand-gold/25 py-3' : 'bg-transparent'}`}>
         <a href="#hero" className="font-serif text-[0.78rem] tracking-[0.18em] uppercase text-brand-gold-bright decoration-transparent transition-colors hover:text-brand-gold-pale flex items-center gap-2">
-          Bhaktivedānta <span className="bg-brand-crimson text-brand-parchment px-1.5 py-0.5 rounded text-[0.55rem] font-bold tracking-widest shadow-[0_0_10px_rgba(139,26,26,0.3)] border border-brand-crimson-light">AI SUPER CHAT</span>
+          Bhaktivedānta <span className="bg-brand-crimson text-[#F2E8D5] px-1.5 py-0.5 rounded text-[0.55rem] font-bold tracking-widest shadow-[0_0_10px_rgba(139,26,26,0.3)] border border-brand-crimson-light">AI SUPER CHAT</span>
         </a>
-        <ul className="hidden md:flex gap-12 list-none">
-          {['Library', 'Why It Works', 'How It Works'].map(item => (
-            <li key={item}>
-              <a 
-                href={`#${item.toLowerCase().replace(/ /g, '') === 'whyitworks' ? 'benefits' : item.toLowerCase().replace(/ /g, '') === 'howitworks' ? 'how' : item.toLowerCase()}`} 
-                className="font-serif text-[0.65rem] tracking-[0.2em] uppercase text-brand-ghost decoration-transparent transition-colors hover:text-brand-gold-bright"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <button 
-          className="md:hidden flex bg-transparent border border-brand-gold/25 text-brand-gold-bright px-3 py-1.5 font-serif text-[0.6rem] tracking-[0.15em] cursor-pointer"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? 'CLOSE' : 'MENU'}
-        </button>
+        <div className="flex items-center gap-6">
+          <ul className="hidden md:flex gap-12 list-none m-0 items-center">
+            {['Library', 'Why It Works', 'How It Works'].map(item => (
+              <li key={item}>
+                <a 
+                  href={`#${item.toLowerCase().replace(/ /g, '') === 'whyitworks' ? 'benefits' : item.toLowerCase().replace(/ /g, '') === 'howitworks' ? 'how' : item.toLowerCase()}`} 
+                  className="font-serif text-[0.65rem] tracking-[0.2em] uppercase text-brand-ghost decoration-transparent transition-colors hover:text-brand-gold-bright"
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <button 
+              className="md:hidden flex bg-transparent border border-brand-gold/25 text-brand-gold-bright px-3 py-1.5 font-serif text-[0.6rem] tracking-[0.15em] cursor-pointer"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? 'CLOSE' : 'MENU'}
+            </button>
+          </div>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -139,11 +202,11 @@ const Hero = () => {
         className="absolute inset-0 z-0 select-none pointer-events-none"
       >
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 blur-[1px] scale-105" 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] scale-105 hero-image" 
           style={{ backgroundImage: 'url(https://i.ibb.co/gLCpXtm7/Srila-Prabhupada-Hero-Image.jpg)' }} 
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-bg/95 via-brand-bg/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/80 via-brand-bg/40 to-brand-bg" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/80 via-transparent to-brand-bg" />
         <div className="absolute inset-0 bg-radial-[ellipse_70%_50%_at_50%_30%] from-brand-gold/10 to-transparent mix-blend-screen" />
       </div>
 
@@ -204,7 +267,7 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 1.4 }}
           className="flex flex-wrap justify-start gap-[2vh] mt-[2vh]"
         >
-          <a href="#library" className="group relative inline-flex items-center gap-3 px-[4vw] md:px-10 py-[1.5vh] md:py-4 bg-brand-crimson text-brand-parchment font-serif text-[clamp(0.6rem,1.2vh,0.68rem)] font-medium tracking-[0.2em] uppercase border border-brand-crimson-light hover:bg-brand-crimson-light hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(139,26,26,0.4)] transition-all duration-400 overflow-hidden text-center justify-center min-w-[200px]">
+          <a href="#library" className="group relative inline-flex items-center gap-3 px-[4vw] md:px-10 py-[1.5vh] md:py-4 bg-brand-crimson text-[#F2E8D5] font-serif text-[clamp(0.6rem,1.2vh,0.68rem)] font-medium tracking-[0.2em] uppercase border border-brand-crimson-light hover:bg-brand-crimson-light hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(139,26,26,0.4)] transition-all duration-400 overflow-hidden text-center justify-center min-w-[200px]">
             <span className="relative z-10">Open the Library</span>
           </a>
         </motion.div>
@@ -283,7 +346,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="group block mb-0 border border-brand-gold/20 bg-gradient-to-b from-brand-bg-raised to-[#171209] p-12 relative overflow-hidden transition-all duration-500 hover:border-brand-gold-bright/50 hover:bg-[#1f160c] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+            className="group block mb-0 border border-brand-gold/20 bg-gradient-to-b from-brand-bg-raised to-brand-bg p-12 relative overflow-hidden transition-all duration-500 hover:border-brand-gold-bright/50 hover:bg-brand-bg-raised/70 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
           >
             <div className="absolute -right-4 -bottom-10 font-display text-[14rem] font-black leading-none text-brand-gold/5 select-none pointer-events-none group-hover:text-brand-gold/10 transition-colors duration-500">
               0{i + 1}
@@ -430,14 +493,14 @@ const ContrastSection = () => {
           </span>
         </div>
 
-        <div className="bg-gradient-to-br from-brand-bg-raised to-[#20160a] p-10 md:p-14 relative group border border-brand-gold-bright shadow-[0_0_70px_rgba(212,168,67,0.3)] z-10 md:scale-[1.05] ring-2 ring-brand-gold-bright overflow-hidden">
+        <div className="bg-gradient-to-br from-brand-bg-raised to-brand-bg p-10 md:p-14 relative group border border-brand-gold-bright shadow-[0_0_70px_rgba(212,168,67,0.3)] z-10 md:scale-[1.05] ring-2 ring-brand-gold-bright overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold-bright/10 blur-3xl rounded-full" />
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-crimson/10 blur-3xl rounded-full" />
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-8 pb-6 border-b border-brand-gold/25">
               <div className="w-2 h-2 rounded-full shrink-0 bg-brand-gold-bright shadow-[0_0_10px_rgba(212,168,67,0.8)] animate-pulse" />
               <span className="font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold-bright flex items-center justify-center gap-2">
-                <span className="bg-brand-crimson border border-brand-crimson-light px-2 py-1 rounded shadow-[0_0_15px_rgba(139,26,26,0.3)] text-brand-parchment font-bold">AI SUPER CHAT</span>
+                <span className="bg-brand-crimson border border-brand-crimson-light px-2 py-1 rounded shadow-[0_0_15px_rgba(139,26,26,0.3)] text-[#F2E8D5] font-bold">AI SUPER CHAT</span>
                 · source-grounded
               </span>
             </div>
@@ -536,7 +599,7 @@ const Footer = () => {
       </span>
       <div className="font-serif text-[0.72rem] tracking-[0.25em] uppercase text-brand-gold mb-10 flex flex-col sm:flex-row items-center justify-center gap-3">
         Bhaktivedānta 
-        <span className="bg-brand-crimson border border-brand-crimson-light text-brand-parchment px-2 py-1 rounded text-[0.65rem] font-bold tracking-widest shadow-[0_0_15px_rgba(139,26,26,0.4)]">AI SUPER CHAT</span>
+        <span className="bg-brand-crimson border border-brand-crimson-light text-[#F2E8D5] px-2 py-1 rounded text-[0.65rem] font-bold tracking-widest shadow-[0_0_15px_rgba(139,26,26,0.4)]">AI SUPER CHAT</span>
       </div>
       <div className="w-[120px] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-10" />
       <p className="font-sans text-[0.95rem] italic text-brand-ink-faded mb-3">
@@ -558,7 +621,7 @@ const Footer = () => {
           </li>
         ))}
       </ul>
-      <p className="font-sans text-[0.8rem] text-[#7A6448]/55 leading-[1.9] max-w-[600px] mx-auto">
+      <p className="font-sans text-[0.8rem] text-brand-ink-faded/55 leading-[1.9] max-w-[600px] mx-auto">
         This page curates access points for studying Gauḍīya Vaiṣṇava literature.<br/>
         Original source text copyright belongs to its respective holders.
       </p>
@@ -637,7 +700,7 @@ const InstallPopup = ({
           {pendingLink ? "Please bookmark or install this site before entering the portal, so you can always find your way back to these study resources." : "As a first-time visitor, we invite you to save this gateway to your device for easy access to all collections."}
         </p>
 
-        <div className="bg-[#171209] border border-brand-gold/20 p-6 mb-8 text-left">
+        <div className="bg-brand-bg-raised border border-brand-gold/20 p-6 mb-8 text-left">
           <h4 className="font-serif text-[0.65rem] tracking-[0.2em] uppercase text-brand-gold mb-4 text-center">Installation Guide</h4>
           
           {isStandalone ? (
@@ -677,7 +740,7 @@ const InstallPopup = ({
         {pendingLink ? (
           <button 
             onClick={onProceed}
-            className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-brand-crimson text-brand-parchment font-serif text-[0.75rem] font-bold tracking-[0.2em] uppercase hover:bg-brand-crimson-light transition-all duration-300 shadow-[0_0_20px_rgba(139,26,26,0.3)]"
+            className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-brand-crimson text-[#F2E8D5] font-serif text-[0.75rem] font-bold tracking-[0.2em] uppercase hover:bg-brand-crimson-light transition-all duration-300 shadow-[0_0_20px_rgba(139,26,26,0.3)]"
           >
             I've Saved It — Enter Portal 
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -703,7 +766,7 @@ export default function App() {
   useEffect(() => {
     const hasVisited = localStorage.getItem('hasVisitedBefore');
     if (!hasVisited) {
-      setTimeout(() => setShowInstallPopup(true), 2500);
+      setTimeout(() => setShowInstallPopup(true), 7000);
       localStorage.setItem('hasVisitedBefore', 'true');
     }
 

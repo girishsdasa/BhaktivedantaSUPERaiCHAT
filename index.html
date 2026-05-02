@@ -8,6 +8,18 @@
     <title>Bhaktivedānta AI SUPER CHAT</title>
   </head>
   <body>
+    <script>
+      (function() {
+        try {
+          const isLight = localStorage.getItem('theme') === 'light' || 
+                          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches);
+          if (isLight) {
+            document.documentElement.classList.add('light');
+            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#F9F6EE');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <div id="root"></div>
     <script>
       if ('serviceWorker' in navigator) {

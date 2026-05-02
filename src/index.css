@@ -6,22 +6,67 @@
   --font-display: "Playfair Display", serif;
   --font-serif: "Cinzel", serif;
 
-  --color-brand-parchment: #F2E8D5;
-  --color-brand-parchment-dark: #E8D9BE;
-  --color-brand-ink: #1A1208;
-  --color-brand-ink-mid: #3D2E1A;
-  --color-brand-ink-faded: #7A6448;
-  --color-brand-ghost: #B8A88A;
-  --color-brand-crimson: #8B1A1A;
-  --color-brand-crimson-light: #B52A2A;
-  --color-brand-gold: #B8922A;
-  --color-brand-gold-bright: #D4A843;
-  --color-brand-gold-pale: #E8D4A0;
-  --color-brand-teal-deep: #1A4A4A;
-  --color-brand-teal: #2A6B6B;
-  --color-brand-bg: #0F0C08;
-  --color-brand-bg-raised: #171209;
+  --color-brand-parchment: var(--parchment);
+  --color-brand-parchment-dark: var(--parchment-dark);
+  --color-brand-ink: var(--ink);
+  --color-brand-ink-mid: var(--ink-mid);
+  --color-brand-ink-faded: var(--ink-faded);
+  --color-brand-ghost: var(--ghost);
+  --color-brand-crimson: var(--crimson);
+  --color-brand-crimson-light: var(--crimson-light);
+  --color-brand-gold: var(--gold);
+  --color-brand-gold-bright: var(--gold-bright);
+  --color-brand-gold-pale: var(--gold-pale);
+  --color-brand-teal-deep: var(--teal-deep);
+  --color-brand-teal: var(--teal);
+  --color-brand-bg: var(--bg);
+  --color-brand-bg-raised: var(--bg-raised);
 }
+
+:root {
+  --parchment: #F2E8D5;
+  --parchment-dark: #E8D9BE;
+  --ink: #1A1208;
+  --ink-mid: #3D2E1A;
+  --ink-faded: #7A6448;
+  --ghost: #B8A88A;
+  --crimson: #8B1A1A;
+  --crimson-light: #B52A2A;
+  --gold: #B8922A;
+  --gold-bright: #D4A843;
+  --gold-pale: #E8D4A0;
+  --teal-deep: #1A4A4A;
+  --teal: #2A6B6B;
+  --bg: #0F0C08;
+  --bg-raised: #171209;
+}
+
+.light {
+  --parchment: #1A1208;
+  --parchment-dark: #3D2E1A;
+  --ink: #F2E8D5;
+  --ink-mid: #E8D9BE;
+  --ink-faded: #B8A88A;
+  --ghost: #5C4A32;
+  --crimson: #961A1A;
+  --crimson-light: #C02626;
+  --gold: #A78225;
+  --gold-bright: #B58C25;
+  --gold-pale: #4d3b0e;
+  --teal-deep: #2A6B6B;
+  --teal: #1A4A4A;
+  --bg: #F9F6EE;
+  --bg-raised: #EFEBDF;
+}
+
+.hero-image {
+  opacity: 0.4;
+}
+
+.light .hero-image {
+  opacity: 0.85;
+}
+
 
 @layer base {
   html {
