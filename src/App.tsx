@@ -771,9 +771,13 @@ export default function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
 
   useEffect(() => {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
     const hasVisited = localStorage.getItem('hasVisitedBefore');
-    if (!hasVisited) {
+    
+    if (!hasVisited && !isStandalone) {
       setTimeout(() => setShowInstallPopup(true), 7000);
+      localStorage.setItem('hasVisitedBefore', 'true');
+    } else if (!hasVisited) {
       localStorage.setItem('hasVisitedBefore', 'true');
     }
 
@@ -786,13 +790,20 @@ export default function App() {
   }, []);
 
   const handleOpenPortal = (link: string) => {
-    setPendingLink(link);
-    setShowInstallPopup(true);
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
+    if (isStandalone) {
+      const newWin = window.open(link, '_blank', 'noopener,noreferrer');
+      if (!newWin) window.location.href = link;
+    } else {
+      setPendingLink(link);
+      setShowInstallPopup(true);
+    }
   };
 
   const handleProceed = () => {
     if (pendingLink) {
-      window.open(pendingLink, '_blank', 'noopener,noreferrer');
+      const newWin = window.open(pendingLink, '_blank', 'noopener,noreferrer');
+      if (!newWin) window.location.href = pendingLink;
       setPendingLink(null);
     }
     setShowInstallPopup(false);
