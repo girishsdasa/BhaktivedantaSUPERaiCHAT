@@ -26,9 +26,16 @@ const NOTEBOOKS = [
   {
     id: 'bio',
     vol: 'Vol. IV',
-    title: 'Prabhupāda Biographical Works',
+    title: 'Śrīla Prabhupāda Biographies & Memoirs',
     description: 'Discover the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
     link: 'https://notebooklm.google.com/notebook/e9bbd439-7baf-423c-8e18-756fd29ae28b',
+  },
+  {
+    id: 'analogies',
+    vol: 'Vol. V',
+    title: "Śrīla Prabhupāda's Analogies",
+    description: 'Explore the profound philosophical concepts through the simple and clear analogies frequently used by Śrīla Prabhupāda.',
+    link: 'https://notebooklm.google.com/notebook/237c84bc-7cb9-49e8-b889-3cb507a66620',
   }
 ];
 
@@ -321,7 +328,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
           viewport={{ once: true }}
           className="font-serif text-[0.6rem] tracking-[0.35em] uppercase text-brand-gold mb-6 block"
         >
-          Seven Portals
+          Five Portals
         </motion.span>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -348,7 +355,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
             transition={{ delay: i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="group block mb-0 border border-brand-gold/20 bg-gradient-to-b from-brand-bg-raised to-brand-bg p-12 relative overflow-hidden transition-all duration-500 hover:border-brand-gold-bright/50 hover:bg-brand-bg-raised/70 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
           >
-            <div className="absolute -right-4 -bottom-10 font-display text-[14rem] font-black leading-none text-brand-gold/5 select-none pointer-events-none group-hover:text-brand-gold/10 transition-colors duration-500">
+            <div className="absolute -right-4 -bottom-10 font-display text-[14rem] font-black leading-none text-brand-gold/5 select-none pointer-events-none transition-all duration-1000 ease-in-out group-hover:text-brand-gold/10 group-hover:-translate-y-[70%]">
               0{i + 1}
             </div>
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-crimson to-brand-gold-bright origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
@@ -364,7 +371,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
             </p>
             <div className="inline-flex items-center gap-2.5 font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold transition-all duration-300 group-hover:text-brand-gold-bright group-hover:gap-4 relative z-10">
               <div className="w-5 h-[1px] bg-current transition-all duration-300 group-hover:w-8" />
-              Open Portal
+              Open Superchat
             </div>
           </motion.a>
         ))}
