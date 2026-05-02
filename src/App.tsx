@@ -582,10 +582,43 @@ const InstallPopup = ({
   if (!isOpen) return null;
 
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
+
+  if (isStandalone && !pendingLink) return null; // If already installed, don't show the initial welcome install prompt
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-brand-bg/95 backdrop-blur-sm" onClick={onClose} />
+      
+      {/* Directional Arrows based on device */}
+      {!deferredPrompt && !isStandalone && (
+         isIOS ? (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[110] flex flex-col items-center pointer-events-none drop-shadow-[0_0_15px_rgba(212,168,67,0.5)]"
+          >
+            <span className="font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold-bright mb-2 bg-brand-bg-raised/80 px-3 py-1.5 border border-brand-gold/30 rounded backdrop-blur">Tap Share</span>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-brand-gold-bright" strokeWidth="2">
+               <path d="M12 4v16m0 0l-6-6m6 6l6-6"/>
+            </svg>
+          </motion.div>
+         ) : (
+          <motion.div 
+            initial={{ opacity: 0, x: -10, y: 10 }}
+            animate={{ opacity: 1, x: [0, 5, 0], y: [0, -5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="fixed top-4 right-10 z-[110] flex flex-col items-end pointer-events-none drop-shadow-[0_0_15px_rgba(212,168,67,0.5)]"
+          >
+            <span className="font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold-bright mb-2 bg-brand-bg-raised/80 px-3 py-1.5 border border-brand-gold/30 rounded backdrop-blur max-w-[120px] text-right">Browser Menu</span>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-brand-gold-bright origin-top-right rotate-45 mr-2" strokeWidth="2">
+               <path d="M12 20V4m0 0l-6 6m6-6l6 6"/>
+            </svg>
+          </motion.div>
+         )
+      )}
+
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -607,7 +640,11 @@ const InstallPopup = ({
         <div className="bg-[#171209] border border-brand-gold/20 p-6 mb-8 text-left">
           <h4 className="font-serif text-[0.65rem] tracking-[0.2em] uppercase text-brand-gold mb-4 text-center">Installation Guide</h4>
           
-          {deferredPrompt ? (
+          {isStandalone ? (
+            <div className="text-center font-sans text-[0.9rem] text-brand-gold mb-2">
+              ✓ App is currently installed.
+            </div>
+          ) : deferredPrompt ? (
             <div className="text-center">
               <button 
                 onClick={() => deferredPrompt.prompt()}
@@ -618,21 +655,23 @@ const InstallPopup = ({
             </div>
           ) : isIOS ? (
             <ol className="list-decimal pl-4 font-sans text-[0.9rem] text-brand-parchment space-y-3 marker:text-brand-gold">
-              <li>Tap the <span className="inline-flex items-center justify-center w-6 h-6 bg-brand-gold/10 rounded align-middle mx-1"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 15V3m0 0L8.5 6.5M12 3l3.5 3.5M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"/></svg></span> Share icon at the bottom.</li>
+              <li>Tap the <span className="inline-flex items-center justify-center w-6 h-6 bg-brand-gold/10 rounded align-middle mx-1"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 15V3m0 0L8.5 6.5M12 3l3.5 3.5M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"/></svg></span> <strong>Share</strong> icon (pointed out below).</li>
               <li>Scroll down and tap <strong>Add to Home Screen</strong> <span className="inline-flex items-center justify-center w-6 h-6 bg-brand-gold/10 rounded align-middle mx-1"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 4v16m8-8H4"/></svg></span>.</li>
               <li>Tap <strong>Add</strong> in the top right corner.</li>
             </ol>
           ) : (
              <ol className="list-decimal pl-4 font-sans text-[0.9rem] text-brand-parchment space-y-3 marker:text-brand-gold">
-              <li>Tap your browser's menu (⋮) or Share icon.</li>
+              <li>Tap your browser's menu (⋮) or Share icon (pointed out above).</li>
               <li>Select <strong>Add to Home screen</strong> or <strong>Install app</strong>.</li>
               <li>Alternatively, press <strong>Ctrl+D</strong> (or <strong>Cmd+D</strong>) to bookmark this page.</li>
             </ol>
           )}
 
-          <div className="mt-6 pt-5 border-t border-brand-gold/10 font-sans text-[0.85rem] italic text-brand-ink-faded leading-[1.6]">
-            Once saved, you can launch this gateway directly from your home screen like any app, ensuring the knowledge is always close at hand.
-          </div>
+          {!isStandalone && (
+            <div className="mt-6 pt-5 border-t border-brand-gold/10 font-sans text-[0.85rem] italic text-brand-ink-faded leading-[1.6]">
+              Once saved, you can launch this gateway directly from your home screen like any app, ensuring the knowledge is always close at hand.
+            </div>
+          )}
         </div>
 
         {pendingLink ? (
