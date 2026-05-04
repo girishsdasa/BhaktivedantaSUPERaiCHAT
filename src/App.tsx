@@ -24,11 +24,18 @@ const NOTEBOOKS = [
     link: 'https://notebooklm.google.com/notebook/ac84348a-1229-4e07-b148-bf7ac493a66e?authuser=3',
   },
   {
-    id: 'bio',
-    vol: 'Vol. IV',
-    title: 'Śrīla Prabhupāda Biographies & Memoirs',
+    id: 'bio-1',
+    vol: 'Vol. IV - Part 1',
+    title: 'Śrīla Prabhupāda Biographies & Memoirs (Part 1)',
     description: 'Discover the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
     link: 'https://notebooklm.google.com/notebook/3199b23a-6731-4ed7-86db-f15b7fa71646',
+  },
+  {
+    id: 'bio-2',
+    vol: 'Vol. IV - Part 2',
+    title: 'Śrīla Prabhupāda Biographies & Memoirs (Part 2)',
+    description: 'Continue exploring the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
+    link: 'https://notebooklm.google.com/notebook/c499d1e3-7665-4eb1-a3d6-3276cbff4578',
   },
   {
     id: 'analogies',
@@ -328,7 +335,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
           viewport={{ once: true }}
           className="font-serif text-[0.6rem] tracking-[0.35em] uppercase text-brand-gold mb-6 block"
         >
-          Five Portals
+          Six Portals
         </motion.span>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
