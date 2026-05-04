@@ -28,7 +28,7 @@ const NOTEBOOKS = [
     vol: 'Vol. IV',
     title: 'Śrīla Prabhupāda Biographies & Memoirs',
     description: 'Discover the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
-    link: 'https://notebooklm.google.com/notebook/e9bbd439-7baf-423c-8e18-756fd29ae28b',
+    link: 'https://notebooklm.google.com/notebook/3199b23a-6731-4ed7-86db-f15b7fa71646',
   },
   {
     id: 'analogies',
