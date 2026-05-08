@@ -780,7 +780,74 @@ const InstallPopup = ({
   );
 };
 
+const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let currentProgress = 0;
+    const interval = setInterval(() => {
+      currentProgress += Math.random() * 8 + 2; 
+      if (currentProgress >= 90) {
+        currentProgress = 90; 
+      }
+      setProgress(currentProgress);
+    }, 150);
+
+    const img = new window.Image();
+    img.src = 'https://i.ibb.co/gLCpXtm7/Srila-Prabhupada-Hero-Image.jpg';
+    
+    const finishLoading = () => {
+      clearInterval(interval);
+      setProgress(100);
+      setTimeout(() => {
+        onComplete();
+      }, 600);
+    };
+
+    if (img.complete) {
+      finishLoading();
+    } else {
+      img.onload = finishLoading;
+      img.onerror = finishLoading;
+    }
+
+    return () => clearInterval(interval);
+  }, [onComplete]);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className="fixed inset-0 z-[9999] bg-[#0F0C08] flex flex-col items-center justify-center overflow-hidden"
+    >
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div 
+          className="absolute top-[-50%] bottom-[-50%] w-[12px] md:w-[20px] bg-brand-gold-bright shadow-[0_0_50px_rgba(212,168,67,1)]"
+          style={{ 
+            left: `${progress}%`,
+            rotate: 15,
+            x: '-50%'
+          }}
+          transition={{ ease: "linear", duration: 0.2 }}
+        />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center mix-blend-difference text-[#F2E8D5]">
+        <span className="font-display text-[5rem] font-black italic mb-6">B</span>
+        <h2 className="font-serif text-[0.85rem] tracking-[0.4em] uppercase mb-3">
+          Loading Library
+        </h2>
+        <div className="font-mono text-[0.7rem] tracking-widest">
+          {Math.min(100, Math.round(progress))}%
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function App() {
+  const [isAppLoaded, setIsAppLoaded] = useState(false);
   const [showInstallPopup, setShowInstallPopup] = useState(false);
   const [pendingLink, setPendingLink] = useState<string | null>(null);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -831,18 +898,23 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-        <ChapterBreak />
-        <TrustSection />
-        <LibrarySection onOpenPortal={handleOpenPortal} />
-        <SimpleOrnament />
-        <BenefitsSection />
-        <ContrastSection />
-        <HowItWorksSection />
-      </main>
-      <Footer />
+      <AnimatePresence>
+        {!isAppLoaded && <LoadingScreen onComplete={() => setIsAppLoaded(true)} />}
+      </AnimatePresence>
+      <div className={isAppLoaded ? "" : "opacity-0 h-[100vh] overflow-hidden"}>
+        <Navbar />
+        <main>
+          <Hero />
+          <ChapterBreak />
+          <TrustSection />
+          <LibrarySection onOpenPortal={handleOpenPortal} />
+          <SimpleOrnament />
+          <BenefitsSection />
+          <ContrastSection />
+          <HowItWorksSection />
+        </main>
+        <Footer />
+      </div>
       <AnimatePresence>
         {showInstallPopup && (
           <InstallPopup 
