@@ -258,7 +258,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="block"
           >
-            Rooted in <span className="italic text-brand-crimson-light">Śāstra.</span>
+            Directly from <span className="italic text-brand-crimson-light">Prabhupāda</span><sup className="text-[0.25em] font-sans font-medium text-brand-gold-bright tracking-[0.1em] relative -top-[1.5em] ml-2 drop-shadow-[0_0_15px_rgba(212,168,67,0.4)]">WITH CITATIONS</sup>
           </motion.span>
         </h1>
 
@@ -270,7 +270,7 @@ const Hero = () => {
         >
           <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[2vh]" />
           <p className="font-sans text-[clamp(0.9rem,min(2vw,2.5vh),1.25rem)] font-light italic text-brand-ghost leading-[1.6]">
-            The world's first curated <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">AI SUPER CHAT</span> gateway for studying Śrīla Prabhupāda's books, lectures, letters, and Gauḍīya Vaiṣṇava texts through <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]"> source-grounded AI answers.</span> 
+            The world's first curated <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">AI SUPER CHAT</span> gateway for studying Śrīla Prabhupāda's books, lectures, letters, and Gauḍīya Vaiṣṇava texts through <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]"> answers directly from Prabhupāda's books.</span> 
           </p>
           <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[2vh]" />
         </motion.div>
@@ -292,7 +292,7 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 1.7 }}
           className="mt-[5vh] font-serif text-[clamp(0.5rem,1.2vh,0.58rem)] tracking-[0.3em] uppercase text-brand-ink-faded"
         >
-          Search deeply &nbsp;·&nbsp; Verify directly &nbsp;·&nbsp; Stay anchored in the source
+          Search deeply &nbsp;·&nbsp; Verify directly &nbsp;·&nbsp; Stay anchored in Prabhupāda's teachings
         </motion.p>
       </div>
     </section>
@@ -317,7 +317,7 @@ const TrustSection = () => {
             Not trained to <em className="text-brand-gold-bright italic drop-shadow-[0_0_15px_rgba(212,168,67,0.3)]">impress.</em><br/>Built to <span className="text-brand-gold-bright border-b border-brand-gold/30 pb-1">reference.</span>
           </h2>
           <p className="font-sans text-[1.15rem] italic text-brand-ghost leading-[1.9]">
-            Most <span className="text-brand-gold-bright font-medium not-italic">AI</span> tools generate confidence. This experience is built for traceability — helping you explore sacred texts through grounded, <span className="text-brand-gold-bright font-medium not-italic">source-linked answers.</span>
+            Most <span className="text-brand-gold-bright font-medium not-italic">AI</span> tools generate confidence. This experience is built for traceability — helping you explore sacred texts through <span className="text-brand-gold-bright font-medium not-italic">answers directly from Prabhupāda's books.</span>
           </p>
         </motion.div>
       </div>
@@ -389,12 +389,12 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
 
 const BenefitsSection = () => {
   const benefits = [
-    { num: '1', title: "Source-grounded answers", desc: "Every response traceable to actual passages in the text" },
+    { num: '1', title: "Answers directly from Prabhupāda's books", desc: "Every response traceable to actual passages in the text" },
     { num: '2', title: "Semantic search beyond keywords", desc: "Ask naturally, receive meaningfully from within the corpus" },
     { num: '3', title: "Faster class preparation", desc: "Compress hours of study into precise, referenced inquiry" },
     { num: '4', title: "Focused by collection", desc: "Each portal is curated for depth within its specific corpus" },
     { num: '5', title: "Multilingual accessibility", desc: "Reach across language barriers without losing fidelity" },
-    { num: '6', title: "Verifiable in the original", desc: "The source text always remains one click away" }
+    { num: '6', title: "Verifiable in the original text", desc: "The original text always remains one click away" }
   ];
 
   return (
@@ -419,7 +419,7 @@ const BenefitsSection = () => {
              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
              className="font-sans text-[1.1rem] italic text-brand-ghost leading-[1.85] m-0"
           >
-            These collections are not generic <span className="text-brand-gold-bright not-italic font-medium">AI</span> chatbots. They are purpose-built study environments grounded entirely in the source texts — <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-2 py-0.5 rounded border border-brand-gold/20 shadow-[0_0_15px_rgba(212,168,67,0.1)]">answering from śāstra, not from the statistical center of the internet.</span>
+            These collections are not generic <span className="text-brand-gold-bright not-italic font-medium">AI</span> chatbots. They are purpose-built study environments grounded entirely in Prabhupāda's teachings — <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-2 py-0.5 rounded border border-brand-gold/20 shadow-[0_0_15px_rgba(212,168,67,0.1)]">answering from śāstra, not from the statistical center of the internet.</span>
           </motion.p>
         </div>
 
@@ -477,7 +477,7 @@ const ContrastSection = () => {
           viewport={{ once: true }}
           className="font-sans text-[1.1rem] italic text-brand-ghost leading-[1.8] mt-6"
         >
-          The difference between a confident answer and a correct one is invisible — until you trace it back to the source.
+          The difference between a confident answer and a correct one is invisible — until you trace it back to the original text.
         </motion.p>
       </div>
 
@@ -515,7 +515,7 @@ const ContrastSection = () => {
               <div className="w-2 h-2 rounded-full shrink-0 bg-brand-gold-bright shadow-[0_0_10px_rgba(212,168,67,0.8)] animate-pulse" />
               <span className="font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold-bright flex items-center justify-center gap-2">
                 <span className="bg-brand-crimson border border-brand-crimson-light px-2 py-1 rounded shadow-[0_0_15px_rgba(139,26,26,0.3)] text-[#F2E8D5] font-bold">AI SUPER CHAT</span>
-                · source-grounded
+                · directly from Prabhupāda's books
               </span>
             </div>
             <p className="font-display text-[0.9rem] italic font-normal text-brand-ghost mb-6">
@@ -525,7 +525,7 @@ const ContrastSection = () => {
               According to the <span className="text-brand-gold-bright font-medium underline decoration-brand-gold/50 underline-offset-4">Nectar of Devotion, Chapter 18</span>, Prabhupāda outlines the sixty-four items of devotional service and discusses the progressive stages leading to prema. <span className="inline-block mt-2 sm:mt-0 sm:ml-2 bg-brand-gold/15 px-2 py-0.5 rounded border text-[0.85em] border-brand-gold/30 text-brand-gold-bright shadow-[0_0_15px_rgba(212,168,67,0.15)] font-mono whitespace-nowrap">[Source: NOD Ch. 18, para. 4]</span>
             </p>
             <span className="inline-flex items-center gap-2 font-serif text-[0.58rem] tracking-[0.2em] uppercase px-4 py-2 border border-brand-gold-bright/50 bg-brand-gold/10 text-brand-gold-bright font-bold shadow-[0_0_15px_rgba(212,168,67,0.2)]">
-              ✦ Source-linked · Verifiable - with citations
+              ✦ Directly from Prabhupāda's books · Verifiable - with citations
             </span>
             <span className="block mt-5 font-sans text-[0.82rem] italic text-brand-ink-faded">
               Precise and traceable. The passage is cited and accessible within the notebook for direct verification.
@@ -565,14 +565,14 @@ const HowItWorksSection = () => {
             {
               num: 'II',
               step: 'Step Two',
-              title: 'Retrieve from Source',
+              title: 'Retrieve from Prabhupāda\'s Books',
               body: <>The <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_10px_rgba(212,168,67,0.1)] border border-brand-gold/20 text-[0.85em] tracking-wider uppercase">AI SUPER CHAT</span> searches only within the curated texts of each collection. There is no external internet, no hallucinated authority — only what is actually written in the śāstra.</>
             },
             {
               num: 'III',
               step: 'Step Three',
               title: 'Verify in the Text',
-              body: 'Every answer arrives with its source reference. Return to the original passage. Read it in full context. The library always leads back to the book.'
+              body: 'Every answer arrives with its exact reference in Prabhupāda\'s books. Return to the original passage. Read it in full context. The library always leads back to the book.'
             }
           ].map((item, i) => (
             <motion.div 
@@ -616,9 +616,6 @@ const Footer = () => {
         <span className="bg-brand-crimson border border-brand-crimson-light text-[#F2E8D5] px-2 py-1 rounded text-[0.65rem] font-bold tracking-widest shadow-[0_0_15px_rgba(139,26,26,0.4)]">AI SUPER CHAT</span>
       </div>
       <div className="w-[120px] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-10" />
-      <p className="font-sans text-[0.95rem] italic text-brand-ink-faded mb-3">
-        Created and maintained by <em className="italic text-brand-gold-bright">Sri Radha Devi Dasi</em>
-      </p>
       <p className="font-serif text-[0.75rem] text-brand-gold/60 uppercase tracking-[0.2em] mb-10">
         Made for the pleasure of Śrīla Prabhupāda
       </p>
@@ -635,10 +632,21 @@ const Footer = () => {
           </li>
         ))}
       </ul>
-      <p className="font-sans text-[0.8rem] text-brand-ink-faded/55 leading-[1.9] max-w-[600px] mx-auto">
-        This page curates access points for studying Gauḍīya Vaiṣṇava literature.<br/>
-        Original source text copyright belongs to its respective holders.
-      </p>
+      <div className="font-sans text-[0.75rem] text-brand-ink-faded/60 leading-[1.8] max-w-[800px] mx-auto text-left space-y-4">
+        <h4 className="font-bold text-[0.8rem] text-center text-brand-ink-faded uppercase tracking-widest mb-4">Disclaimer</h4>
+        <p>
+          This page curates access points for studying Gauḍīya Vaiṣṇava literature. It is not owned by, affiliated with, or endorsed by ISKCON, the Bhaktivedanta Book Trust (BBT), or any related entity.
+        </p>
+        <p>
+          All books, writings, and teachings by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada — including Bhagavad-gita As It Is, Srimad-Bhagavatam, and other titles — are the exclusive property of BBT/ISKCON. All copyrights and intellectual property rights remain solely with them.
+        </p>
+        <p>
+          The research tools provided here, including integration with NotebookLM, are offered strictly as a convenience for the general public to study Srila Prabhupada's books more deeply. NotebookLM is an independent product developed and operated by Google; this website merely facilitates access to it for research purposes.
+        </p>
+        <p>
+          We have no intention of replacing or diverting readers from Srila Prabhupada's original books. Our sole purpose is to deepen interest in his teachings and to help visitors conduct more meaningful research. We sincerely encourage everyone to read the original BBT publications and strengthen their personal connection with Srila Prabhupada.
+        </p>
+      </div>
     </footer>
   );
 };
