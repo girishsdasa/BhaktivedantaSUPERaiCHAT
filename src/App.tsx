@@ -218,6 +218,8 @@ const Hero = () => {
         className="absolute inset-0 z-0 select-none pointer-events-none"
       >
         <div 
+          role="img"
+          aria-label="A.C. Bhaktivedanta Swami Prabhupada"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] scale-105 hero-image" 
           style={{ backgroundImage: 'url(https://i.ibb.co/gLCpXtm7/Srila-Prabhupada-Hero-Image.jpg)' }} 
         />
@@ -438,9 +440,9 @@ const BenefitsSection = () => {
                 {b.num}
               </div>
               <div>
-                <strong className="block font-sans font-medium text-[0.95rem] text-brand-parchment mb-1">
+                <h3 className="block font-sans font-medium text-[0.95rem] text-brand-parchment mb-1">
                   {b.title}
-                </strong>
+                </h3>
                 <span className="font-sans text-[0.85rem] italic text-brand-ink-faded">
                   {b.desc}
                 </span>
