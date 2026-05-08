@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { InstallButton } from './components/InstallButton';
 
 const NOTEBOOKS = [
   {
@@ -172,6 +173,7 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-4">
+            <InstallButton />
             <ThemeToggle />
             <button 
               className="md:hidden flex bg-transparent border border-brand-gold/25 text-brand-gold-bright px-3 py-1.5 font-serif text-[0.6rem] tracking-[0.15em] cursor-pointer"
@@ -651,135 +653,6 @@ const Footer = () => {
   );
 };
 
-const InstallPopup = ({ 
-  isOpen, 
-  onClose, 
-  pendingLink, 
-  onProceed, 
-  deferredPrompt 
-}: { 
-  isOpen: boolean; 
-  onClose: () => void; 
-  pendingLink: string | null; 
-  onProceed: () => void; 
-  deferredPrompt: any;
-}) => {
-  if (!isOpen) return null;
-
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
-
-  if (isStandalone && !pendingLink) return null; // If already installed, don't show the initial welcome install prompt
-
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-brand-bg/95 backdrop-blur-sm" onClick={onClose} />
-      
-      {/* Directional Arrows based on device */}
-      {!deferredPrompt && !isStandalone && (
-         isIOS ? (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[110] flex flex-col items-center pointer-events-none drop-shadow-[0_0_15px_rgba(212,168,67,0.5)]"
-          >
-            <span className="font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold-bright mb-2 bg-brand-bg-raised/80 px-3 py-1.5 border border-brand-gold/30 rounded backdrop-blur">Tap Share</span>
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-brand-gold-bright" strokeWidth="2">
-               <path d="M12 4v16m0 0l-6-6m6 6l6-6"/>
-            </svg>
-          </motion.div>
-         ) : (
-          <motion.div 
-            initial={{ opacity: 0, x: -10, y: 10 }}
-            animate={{ opacity: 1, x: [0, 5, 0], y: [0, -5, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="fixed top-4 right-10 z-[110] flex flex-col items-end pointer-events-none drop-shadow-[0_0_15px_rgba(212,168,67,0.5)]"
-          >
-            <span className="font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold-bright mb-2 bg-brand-bg-raised/80 px-3 py-1.5 border border-brand-gold/30 rounded backdrop-blur max-w-[120px] text-right">Browser Menu</span>
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-brand-gold-bright origin-top-right rotate-45 mr-2" strokeWidth="2">
-               <path d="M12 20V4m0 0l-6 6m6-6l6 6"/>
-            </svg>
-          </motion.div>
-         )
-      )}
-
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="bg-brand-bg-raised border border-brand-gold-bright/30 shadow-[0_0_50px_rgba(212,168,67,0.15)] max-w-[500px] w-full p-8 md:p-12 relative z-10"
-      >
-        <button onClick={onClose} className="absolute top-4 right-4 text-brand-gold hover:text-brand-gold-bright transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-
-        <h3 className="font-display text-[2.2rem] font-bold text-brand-parchment mb-4 leading-tight text-center">
-          Keep the Gateway<br/><em className="text-brand-gold-bright italic">With You</em>
-        </h3>
-        
-        <p className="font-sans text-[1rem] text-brand-ghost leading-[1.6] mb-8 text-center px-4">
-          {pendingLink ? "Please bookmark or install this site before entering the portal, so you can always find your way back to these study resources." : "As a first-time visitor, we invite you to save this gateway to your device for easy access to all collections."}
-        </p>
-
-        <div className="bg-brand-bg-raised border border-brand-gold/20 p-6 mb-8 text-left">
-          <h4 className="font-serif text-[0.65rem] tracking-[0.2em] uppercase text-brand-gold mb-4 text-center">Installation Guide</h4>
-          
-          {isStandalone ? (
-            <div className="text-center font-sans text-[0.9rem] text-brand-gold mb-2">
-              ✓ App is currently installed.
-            </div>
-          ) : deferredPrompt ? (
-            <div className="text-center">
-              <button 
-                onClick={() => deferredPrompt.prompt()}
-                className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-brand-gold-bright text-brand-bg font-serif text-[0.7rem] font-bold tracking-[0.2em] uppercase hover:bg-brand-parchment transition-all duration-300 shadow-[0_0_15px_rgba(212,168,67,0.3)]"
-              >
-                Install App Now
-              </button>
-            </div>
-          ) : isIOS ? (
-            <ol className="list-decimal pl-4 font-sans text-[0.9rem] text-brand-parchment space-y-3 marker:text-brand-gold">
-              <li>Tap the <span className="inline-flex items-center justify-center w-6 h-6 bg-brand-gold/10 rounded align-middle mx-1"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 15V3m0 0L8.5 6.5M12 3l3.5 3.5M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"/></svg></span> <strong>Share</strong> icon (pointed out below).</li>
-              <li>Scroll down and tap <strong>Add to Home Screen</strong> <span className="inline-flex items-center justify-center w-6 h-6 bg-brand-gold/10 rounded align-middle mx-1"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 4v16m8-8H4"/></svg></span>.</li>
-              <li>Tap <strong>Add</strong> in the top right corner.</li>
-            </ol>
-          ) : (
-             <ol className="list-decimal pl-4 font-sans text-[0.9rem] text-brand-parchment space-y-3 marker:text-brand-gold">
-              <li>Tap your browser's menu (⋮) or Share icon (pointed out above).</li>
-              <li>Select <strong>Add to Home screen</strong> or <strong>Install app</strong>.</li>
-              <li>Alternatively, press <strong>Ctrl+D</strong> (or <strong>Cmd+D</strong>) to bookmark this page.</li>
-            </ol>
-          )}
-
-          {!isStandalone && (
-            <div className="mt-6 pt-5 border-t border-brand-gold/10 font-sans text-[0.85rem] italic text-brand-ink-faded leading-[1.6]">
-              Once saved, you can launch this gateway directly from your home screen like any app, ensuring the knowledge is always close at hand.
-            </div>
-          )}
-        </div>
-
-        {pendingLink ? (
-          <button 
-            onClick={onProceed}
-            className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-brand-crimson text-[#F2E8D5] font-serif text-[0.75rem] font-bold tracking-[0.2em] uppercase hover:bg-brand-crimson-light transition-all duration-300 shadow-[0_0_20px_rgba(139,26,26,0.3)]"
-          >
-            I've Saved It — Enter Portal 
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        ) : (
-          <button 
-            onClick={onClose}
-            className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 border border-brand-gold/30 text-brand-gold hover:text-brand-gold-bright hover:bg-brand-gold/10 font-serif text-[0.7rem] font-bold tracking-[0.2em] uppercase transition-all duration-300"
-          >
-            Continue Exploring Gateway
-          </button>
-        )}
-      </motion.div>
-    </div>
-  );
-};
-
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
 
@@ -848,52 +721,10 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
 export default function App() {
   const [isAppLoaded, setIsAppLoaded] = useState(false);
-  const [showInstallPopup, setShowInstallPopup] = useState(false);
-  const [pendingLink, setPendingLink] = useState<string | null>(null);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-
-  useEffect(() => {
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
-    const hasVisited = localStorage.getItem('hasVisitedBefore');
-    
-    if (!hasVisited && !isStandalone) {
-      setTimeout(() => setShowInstallPopup(true), 7000);
-      localStorage.setItem('hasVisitedBefore', 'true');
-    } else if (!hasVisited) {
-      localStorage.setItem('hasVisitedBefore', 'true');
-    }
-
-    const handler = (e: Event) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    };
-    window.addEventListener('beforeinstallprompt', handler);
-    return () => window.removeEventListener('beforeinstallprompt', handler);
-  }, []);
-
+  
   const handleOpenPortal = (link: string) => {
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
-    if (isStandalone) {
-      const newWin = window.open(link, '_blank', 'noopener,noreferrer');
-      if (!newWin) window.location.href = link;
-    } else {
-      setPendingLink(link);
-      setShowInstallPopup(true);
-    }
-  };
-
-  const handleProceed = () => {
-    if (pendingLink) {
-      const newWin = window.open(pendingLink, '_blank', 'noopener,noreferrer');
-      if (!newWin) window.location.href = pendingLink;
-      setPendingLink(null);
-    }
-    setShowInstallPopup(false);
-  };
-
-  const handleClose = () => {
-    setPendingLink(null);
-    setShowInstallPopup(false);
+    const newWin = window.open(link, '_blank', 'noopener,noreferrer');
+    if (!newWin) window.location.href = link;
   };
 
   return (
@@ -915,17 +746,6 @@ export default function App() {
         </main>
         <Footer />
       </div>
-      <AnimatePresence>
-        {showInstallPopup && (
-          <InstallPopup 
-            isOpen={showInstallPopup} 
-            onClose={handleClose} 
-            pendingLink={pendingLink} 
-            onProceed={handleProceed} 
-            deferredPrompt={deferredPrompt}
-          />
-        )}
-      </AnimatePresence>
-    </>
+          </>
   );
 }
