@@ -30,6 +30,7 @@ const NOTEBOOKS = [
     title: 'Śrīla Prabhupāda Biographies & Memoirs (Part 1)',
     description: 'Discover the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
     link: 'https://notebooklm.google.com/notebook/3199b23a-6731-4ed7-86db-f15b7fa71646',
+    disabled: true,
   },
   {
     id: 'bio-2',
@@ -37,6 +38,7 @@ const NOTEBOOKS = [
     title: 'Śrīla Prabhupāda Biographies & Memoirs (Part 2)',
     description: 'Continue exploring the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
     link: 'https://notebooklm.google.com/notebook/c499d1e3-7665-4eb1-a3d6-3276cbff4578',
+    disabled: true,
   },
   {
     id: 'analogies',
@@ -330,6 +332,8 @@ const TrustSection = () => {
 };
 
 const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void }) => {
+  const visibleNotebooks = NOTEBOOKS.filter(n => !n.disabled);
+  
   return (
     <section id="library" className="py-32 px-[5vw] bg-brand-bg relative">
       <div className="text-center mb-20 max-w-4xl mx-auto">
@@ -339,7 +343,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
           viewport={{ once: true }}
           className="font-serif text-[0.6rem] tracking-[0.35em] uppercase text-brand-gold mb-6 block"
         >
-          Six Portals
+          {visibleNotebooks.length === 4 ? 'Four Portals' : `${visibleNotebooks.length} Portals`}
         </motion.span>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -352,7 +356,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
       </div>
 
       <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        {NOTEBOOKS.map((notebook, i) => (
+        {visibleNotebooks.map((notebook, i) => (
           <motion.a
             key={notebook.id}
             href={notebook.link}
