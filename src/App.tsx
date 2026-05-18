@@ -46,6 +46,13 @@ const NOTEBOOKS = [
     title: "Śrīla Prabhupāda's Analogies",
     description: 'Explore the profound philosophical concepts through the simple and clear analogies frequently used by Śrīla Prabhupāda.',
     link: 'https://notebooklm.google.com/notebook/237c84bc-7cb9-49e8-b889-3cb507a66620',
+  },
+  {
+    id: 'verses',
+    vol: 'Vol. VI',
+    title: 'Verses Finder',
+    description: 'Instantly locate and research any verse from Śrīla Prabhupāda’s extensive books with precision.',
+    link: 'https://notebooklm.google.com/notebook/16100c2c-4a02-495c-9474-9312db6ca375',
   }
 ];
 
@@ -343,7 +350,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
           viewport={{ once: true }}
           className="font-serif text-[0.6rem] tracking-[0.35em] uppercase text-brand-gold mb-6 block"
         >
-          {visibleNotebooks.length === 4 ? 'Four Portals' : `${visibleNotebooks.length} Portals`}
+          {visibleNotebooks.length === 5 ? 'Five Portals' : visibleNotebooks.length === 4 ? 'Four Portals' : `${visibleNotebooks.length} Portals`}
         </motion.span>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
