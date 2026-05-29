@@ -240,7 +240,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-[100dvh] relative flex flex-col items-start justify-center px-[5vw] pt-[14vh] pb-[8vh] text-left bg-brand-bg">
+    <section id="hero" className="min-h-[100dvh] relative flex flex-col items-start justify-center px-[5vw] pt-[11vh] md:pt-[12vh] pb-[6vh] md:pb-[6vh] text-left bg-brand-bg">
       {/* Background Image */}
       <div 
         className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden"
@@ -261,26 +261,26 @@ const Hero = () => {
            initial={{ opacity: 0, y: 30 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 1.2, delay: 0.4 }}
-           className="w-full flex justify-start hidden md:flex"
+           className="w-full justify-start hidden md:flex"
         >
-          <RuleOrnament className="!my-[4vh]" />
+          <RuleOrnament className="!my-[2vh] lg:!my-[3vh]" />
         </motion.div>
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="font-serif text-[clamp(0.5rem,1.5vh,0.62rem)] uppercase tracking-[0.35em] text-brand-gold mb-[3vh]"
+          className="font-serif text-[clamp(0.5rem,1.2vh,0.6rem)] uppercase tracking-[0.35em] text-brand-gold mb-[1vh] md:mb-[1.5vh] lg:mb-[2.5vh]"
         >
           Vishwaguru Śrīla Prabhupāda Transcendental Digital Study Library
         </motion.p>
 
-        <h1 className="font-display text-[1.85rem] xs:text-[2.2rem] sm:text-[3.2rem] md:text-[clamp(3.5rem,min(8vw,10vh),8.5rem)] font-bold tracking-[0.01em] text-brand-parchment mb-6 leading-[1.2] md:leading-[1.05] max-w-full flex flex-col items-start">
+        <h1 className="font-display text-[1.85rem] xs:text-[2.2rem] sm:text-[3.2rem] md:text-[clamp(2.8rem,4.5vw,5rem)] lg:text-[clamp(3.2rem,5vw,5.5rem)] xl:text-[clamp(3.8rem,5.5vw,6rem)] font-bold tracking-[0.01em] text-brand-parchment mb-3 md:mb-4 lg:mb-5 leading-[1.2] md:leading-[1.08] max-w-full flex flex-col items-start">
           <motion.span 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="block mb-2 sm:mb-4"
+            className="block mb-1 sm:mb-2 lg:mb-3"
           >
             Answers Directly
           </motion.span>
@@ -290,8 +290,8 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="block"
           >
-            from Vishwaguru Śrīla Prabhupāda's <span className="italic text-brand-gold-bright drop-shadow-[0_0_30px_rgba(212,168,67,0.4)] block sm:inline mt-2 sm:mt-0">Transcendental Vani</span>
-            <sup className="text-[0.3em] font-sans font-medium text-brand-gold-bright tracking-[0.1em] relative top-[-0.5em] sm:top-[-1.2em] ml-2 drop-shadow-[0_0_15px_rgba(212,168,67,0.4)] whitespace-nowrap">WITH CITATIONS</sup>
+            from Vishwaguru Śrīla Prabhupāda's <span className="italic text-brand-gold-bright drop-shadow-[0_0_30px_rgba(212,168,67,0.4)] block sm:inline mt-1 sm:mt-0">Transcendental Vani</span>
+            <sup className="text-[0.3em] font-sans font-medium text-brand-gold-bright tracking-[0.1em] relative top-[-0.3em] sm:top-[-1.2em] ml-2 drop-shadow-[0_0_15px_rgba(212,168,67,0.4)] whitespace-nowrap">WITH CITATIONS</sup>
           </motion.span>
         </h1>
 
@@ -299,22 +299,22 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 1.1 }}
-          className="mt-[4vh] max-w-[600px] w-full"
+          className="mt-[1.5vh] md:mt-[2vh] lg:mt-[3vh] max-w-[600px] w-full"
         >
-          <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[2vh]" />
-          <p className="font-sans text-[clamp(0.9rem,min(2vw,2.5vh),1.25rem)] font-light italic text-brand-ghost leading-[1.6]">
+          <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[1.2vh] md:my-[1.5vh]" />
+          <p className="font-sans text-[clamp(0.82rem,1.1vw,1.05rem)] font-light italic text-brand-ghost leading-[1.5] md:leading-[1.6]">
             The world's first curated <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">AI SUPER CHATS</span> gateway for studying Vishwaguru Śrīla Prabhupāda's lectures, letters, books, and transcendental vani through <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">answers directly sourced from Vishwaguru Śrīla Prabhupāda.</span>
           </p>
-          <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[2vh]" />
+          <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[1.2vh] md:my-[1.5vh]" />
         </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 1.4 }}
-          className="flex flex-wrap justify-start gap-[2vh] mt-[2vh]"
+          className="flex flex-wrap justify-start gap-[1.2vh] md:gap-[1.5vh] mt-[1.2vh] md:mt-[1.5vh]"
         >
-          <a href="#library" className="group relative inline-flex items-center gap-3 px-[4vw] md:px-10 py-[1.5vh] md:py-4 bg-brand-crimson text-[#F2E8D5] font-serif text-[clamp(0.6rem,1.2vh,0.68rem)] font-medium tracking-[0.2em] uppercase border border-brand-crimson-light hover:bg-brand-crimson-light hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(139,26,26,0.4)] transition-all duration-400 overflow-hidden text-center justify-center min-w-[200px]">
+          <a href="#library" className="group relative inline-flex items-center gap-3 px-[4vw] md:px-10 py-[1.2vh] md:py-4 bg-brand-crimson text-[#F2E8D5] font-serif text-[clamp(0.6rem,1.2vh,0.68rem)] font-medium tracking-[0.2em] uppercase border border-brand-crimson-light hover:bg-brand-crimson-light hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(139,26,26,0.4)] transition-all duration-400 overflow-hidden text-center justify-center min-w-[200px]">
             <span className="relative z-10">Explore all AI Super Chats</span>
           </a>
         </motion.div>
@@ -323,7 +323,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.7 }}
-          className="mt-[5vh] font-serif text-[clamp(0.5rem,1.2vh,0.58rem)] tracking-[0.35em] uppercase text-brand-gold/80"
+          className="mt-[2.5vh] md:mt-[4vh] font-serif text-[clamp(0.5rem,1.1vh,0.55rem)] tracking-[0.35em] uppercase text-brand-gold/80"
         >
           Search deeply &nbsp;·&nbsp; Verify directly &nbsp;·&nbsp; Stay anchored in Vishwaguru Śrīla Prabhupāda's Vani
         </motion.p>
@@ -332,7 +332,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.9 }}
-          className="mt-4 font-sans text-[clamp(0.62rem,1.1vh,0.72rem)] text-brand-ghost/80 italic leading-relaxed max-w-[550px]"
+          className="mt-1.5 md:mt-2.5 font-sans text-[clamp(0.58rem,0.9vw,0.68rem)] text-brand-ghost/80 italic leading-relaxed max-w-[550px]"
         >
           We consider this platform successful only if it inspires visitors to study Vishwaguru Śrīla Prabhupāda's original books directly from authorized BBT publications.
         </motion.p>
