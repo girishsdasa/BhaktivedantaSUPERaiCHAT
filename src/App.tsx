@@ -414,8 +414,11 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
               {notebook.vol}
               <div className="flex-1 h-[1px] bg-brand-gold/25" />
             </div>
+            <div className="mb-3.5 inline-block self-start px-2.5 py-1 bg-brand-crimson text-[#F2E8D5] text-[0.62rem] sm:text-[0.68rem] font-serif tracking-[0.12em] uppercase rounded shadow-[0_2px_5px_rgba(139,26,26,0.2)] border border-brand-crimson-light/40 relative z-10 select-none">
+              Vishwaguru Śrīla Prabhupāda's
+            </div>
             <h3 className="font-display text-[1.35rem] font-bold text-brand-parchment mb-3 leading-[1.3] relative z-10">
-              {notebook.title}
+              {notebook.title.replace(/^(Vishwaguru\s+Śrīla\s+Prabhupāda's|Vishwaguru\s+Śrīla\s+Prabhupāda)\s+/i, '')}
             </h3>
             <p className="font-sans text-[0.92rem] text-brand-ghost leading-[1.75] mb-7 relative z-10">
               {notebook.description}
@@ -653,12 +656,17 @@ const HowItWorksSection = () => {
 const Footer = () => {
   return (
     <footer className="py-20 px-[5vw] text-center border-t border-brand-gold/25 bg-brand-bg">
-      <span className="font-display text-[3.5rem] font-black italic text-brand-gold/25 leading-none mb-10 block">
-        SP
-      </span>
-      <div className="font-serif text-[0.72rem] tracking-[0.25em] uppercase text-brand-gold mb-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-        Srila Prabhupada 
-        <span className="bg-brand-crimson border border-brand-crimson-light text-[#F2E8D5] px-2 py-1 rounded text-[0.65rem] font-bold tracking-widest shadow-[0_0_15px_rgba(139,26,26,0.4)]">AI SUPER CHAT</span>
+      <div className="flex flex-col items-center justify-center mb-10 select-none">
+        <span className="font-serif italic text-[1.45rem] sm:text-[1.85rem] font-semibold text-brand-gold-bright tracking-[0.06em] block drop-shadow-[0_2px_15px_rgba(212,168,67,0.35)]">
+          Vishwaguru Śrīla Prabhupāda
+        </span>
+        <div className="flex items-center gap-3 mt-2">
+          <span className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-brand-crimson/50" />
+          <span className="font-sans text-[0.62rem] sm:text-[0.68rem] font-bold tracking-[0.25em] uppercase bg-gradient-to-r from-brand-crimson to-brand-crimson-light px-3 py-1.5 rounded-full border border-brand-crimson-light/40 shadow-[0_4px_20px_rgba(139,26,26,0.5)] text-[#F2E8D5]">
+            AI SUPER CHAT
+          </span>
+          <span className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-brand-crimson/50" />
+        </div>
       </div>
       <div className="w-[120px] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-10" />
       <p className="font-serif text-[0.75rem] text-brand-gold/60 uppercase tracking-[0.2em] mb-10">
