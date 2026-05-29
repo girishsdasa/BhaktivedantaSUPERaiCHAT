@@ -6,15 +6,15 @@ const NOTEBOOKS = [
   {
     id: 'master',
     vol: 'Vol. I',
-    title: 'Bhaktivedānta Master Collection',
-    description: 'The broadest study portal spanning Śrīla Prabhupāda’s major books for deep philosophical research and daily reading.',
+    title: "Vishwaguru Śrīla Prabhupāda's Master Collection",
+    description: 'The broadest study portal spanning Vishwaguru Śrīla Prabhupāda’s major books for deep philosophical research and daily reading.',
     link: 'https://notebooklm.google.com/notebook/d507600e-3bee-4a9b-ae75-add4e211387c?authuser=3',
   },
   {
     id: 'audio',
     vol: 'Vol. II',
-    title: 'Audio Teachings Archive',
-    description: 'Search across lectures, conversations, morning walks, and spoken teachings for living insight in spoken form.',
+    title: 'Lectures, conversations, morning walks, and all other Vani archives.',
+    description: 'Search across lectures, conversations, morning walks, and spoken vani for living insight in spoken form.',
     link: 'https://notebooklm.google.com/notebook/9234d4c1-c121-47ae-938f-721aa4c5b907',
   },
   {
@@ -27,31 +27,31 @@ const NOTEBOOKS = [
   {
     id: 'bio-1',
     vol: 'Vol. IV - Part 1',
-    title: 'Śrīla Prabhupāda Biographies & Memoirs (Part 1)',
-    description: 'Discover the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
+    title: 'Vishwaguru Śrīla Prabhupāda Biographies & Memoirs (Part 1)',
+    description: 'Discover the life, mission, and global impact of Vishwaguru Śrīla Prabhupāda through biographical works and memoir.',
     link: 'https://notebooklm.google.com/notebook/3199b23a-6731-4ed7-86db-f15b7fa71646',
     disabled: true,
   },
   {
     id: 'bio-2',
     vol: 'Vol. IV - Part 2',
-    title: 'Śrīla Prabhupāda Biographies & Memoirs (Part 2)',
-    description: 'Continue exploring the life, mission, and global impact of Śrīla Prabhupāda through biographical works and memoir.',
+    title: 'Vishwaguru Śrīla Prabhupāda Biographies & Memoirs (Part 2)',
+    description: 'Continue exploring the life, mission, and global impact of Vishwaguru Śrīla Prabhupāda through biographical works and memoir.',
     link: 'https://notebooklm.google.com/notebook/c499d1e3-7665-4eb1-a3d6-3276cbff4578',
     disabled: true,
   },
   {
     id: 'analogies',
     vol: 'Vol. V',
-    title: "Śrīla Prabhupāda's Analogies",
-    description: 'Explore the profound philosophical concepts through the simple and clear analogies frequently used by Śrīla Prabhupāda.',
+    title: "Vishwaguru Śrīla Prabhupāda's Analogies",
+    description: 'Explore the profound philosophical concepts through the simple and clear analogies frequently used by Vishwaguru Śrīla Prabhupāda.',
     link: 'https://notebooklm.google.com/notebook/237c84bc-7cb9-49e8-b889-3cb507a66620',
   },
   {
     id: 'verses',
     vol: 'Vol. VI',
     title: 'Verses Finder',
-    description: 'Instantly locate and research any verse from Śrīla Prabhupāda’s extensive books with precision.',
+    description: 'Instantly locate and research any verse from Vishwaguru Śrīla Prabhupāda’s extensive vani with precision.',
     link: 'https://notebooklm.google.com/notebook/16100c2c-4a02-495c-9474-9312db6ca375',
   }
 ];
@@ -164,11 +164,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5vw] py-5 transition-all duration-700 ${scrolled ? 'bg-brand-bg/95 backdrop-blur-md border-b border-brand-gold/25 py-3' : 'bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5vw] py-4 transition-all duration-700 ${scrolled ? 'bg-brand-bg/95 backdrop-blur-md border-b border-brand-gold/25 py-3' : 'bg-transparent'}`}>
         <a href="#hero" className="font-serif text-[0.78rem] tracking-[0.18em] uppercase text-brand-gold-bright decoration-transparent transition-colors hover:text-brand-gold-pale flex items-center gap-2">
-          Bhaktivedānta <span className="bg-brand-crimson text-[#F2E8D5] px-1.5 py-0.5 rounded text-[0.55rem] font-bold tracking-widest shadow-[0_0_10px_rgba(139,26,26,0.3)] border border-brand-crimson-light">AI SUPER CHAT</span>
+          Srila Prabhupada <span className="hidden sm:inline-block bg-brand-crimson text-[#F2E8D5] px-1.5 py-0.5 rounded text-[0.55rem] font-bold tracking-widest shadow-[0_0_10px_rgba(139,26,26,0.3)] border border-brand-crimson-light">AI SUPER CHAT</span>
         </a>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2 xs:gap-4 md:gap-6">
           <ul className="hidden md:flex gap-12 list-none m-0 items-center">
             {['Library', 'Why It Works', 'How It Works'].map(item => (
               <li key={item}>
@@ -181,14 +181,26 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 xs:gap-3">
             <InstallButton />
             <ThemeToggle />
             <button 
-              className="md:hidden flex bg-transparent border border-brand-gold/25 text-brand-gold-bright px-3 py-1.5 font-serif text-[0.6rem] tracking-[0.15em] cursor-pointer"
+              className="md:hidden flex items-center justify-center bg-transparent border border-brand-gold/20 text-brand-gold-bright p-2 rounded hover:bg-brand-gold/5 cursor-pointer select-none transition-all duration-300"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? 'CLOSE' : 'MENU'}
+              {mobileMenuOpen ? (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="4" y1="12" x2="20" y2="12"></line>
+                  <line x1="4" y1="6" x2="20" y2="6"></line>
+                  <line x1="4" y1="18" x2="20" y2="18"></line>
+                </svg>
+              )}
             </button>
           </div>
         </div>
@@ -197,21 +209,28 @@ const Navbar = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-brand-bg/98 flex flex-col items-center justify-center gap-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 bg-brand-bg/98 backdrop-blur-lg flex flex-col items-center justify-center p-8 border-b border-brand-gold/25 shadow-2xl"
           >
-            {['Library', 'Why It Works', 'How It Works'].map(item => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase().replace(/ /g, '') === 'whyitworks' ? 'benefits' : item.toLowerCase().replace(/ /g, '') === 'howitworks' ? 'how' : item.toLowerCase()}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-serif text-lg tracking-[0.2em] uppercase text-brand-gold-bright decoration-transparent"
-              >
-                {item}
-              </a>
-            ))}
+            <div className="flex flex-col items-center gap-8 w-full max-w-xs">
+              <span className="font-serif text-[0.65rem] tracking-[0.3em] uppercase text-brand-gold mb-4">Navigation</span>
+              {['Library', 'Why It Works', 'How It Works'].map((item, index) => (
+                <motion.a 
+                  key={item}
+                  href={`#${item.toLowerCase().replace(/ /g, '') === 'whyitworks' ? 'benefits' : item.toLowerCase().replace(/ /g, '') === 'howitworks' ? 'how' : item.toLowerCase()}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="font-serif text-lg tracking-[0.2em] font-medium uppercase text-brand-gold-bright hover:text-brand-gold-pale transition-colors decoration-transparent text-center py-3 w-full border-b border-brand-gold/10"
+                >
+                  {item}
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -221,10 +240,10 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="hero" className="h-[100dvh] relative flex flex-col items-start justify-center px-[5vw] pt-[10vh] pb-[5vh] overflow-hidden text-left bg-brand-bg">
+    <section id="hero" className="min-h-[100dvh] relative flex flex-col items-start justify-center px-[5vw] pt-[14vh] pb-[8vh] text-left bg-brand-bg">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0 select-none pointer-events-none"
+        className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden"
       >
         <div 
           role="img"
@@ -253,17 +272,17 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 0.2 }}
           className="font-serif text-[clamp(0.5rem,1.5vh,0.62rem)] uppercase tracking-[0.35em] text-brand-gold mb-[3vh]"
         >
-          Gauḍīya Vaiṣṇava Digital Study Library
+          Vishwaguru Śrīla Prabhupāda Transcendental Digital Study Library
         </motion.p>
 
-        <h1 className="font-display text-[clamp(2.5rem,min(9vw,11vh),9.5rem)] font-black leading-[0.9] tracking-[0.01em] text-brand-parchment mb-4 flex flex-col items-start">
+        <h1 className="font-display text-[1.85rem] xs:text-[2.2rem] sm:text-[3.2rem] md:text-[clamp(3.5rem,min(8vw,10vh),8.5rem)] font-bold tracking-[0.01em] text-brand-parchment mb-6 leading-[1.2] md:leading-[1.05] max-w-full flex flex-col items-start">
           <motion.span 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="block"
+            className="block mb-2 sm:mb-4"
           >
-            <span className="italic text-brand-gold-bright drop-shadow-[0_0_30px_rgba(212,168,67,0.4)]">AI</span> Answers.
+            Answers Directly
           </motion.span>
           <motion.span 
             initial={{ opacity: 0, y: 50 }}
@@ -271,7 +290,8 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="block"
           >
-            Directly from <span className="italic text-brand-crimson-light">Prabhupāda</span><sup className="text-[0.25em] font-sans font-medium text-brand-gold-bright tracking-[0.1em] relative -top-[1.5em] ml-2 drop-shadow-[0_0_15px_rgba(212,168,67,0.4)]">WITH CITATIONS</sup>
+            from Vishwaguru Śrīla Prabhupāda's <span className="italic text-brand-gold-bright drop-shadow-[0_0_30px_rgba(212,168,67,0.4)] block sm:inline mt-2 sm:mt-0">Transcendental Vani</span>
+            <sup className="text-[0.3em] font-sans font-medium text-brand-gold-bright tracking-[0.1em] relative top-[-0.5em] sm:top-[-1.2em] ml-2 drop-shadow-[0_0_15px_rgba(212,168,67,0.4)] whitespace-nowrap">WITH CITATIONS</sup>
           </motion.span>
         </h1>
 
@@ -283,7 +303,7 @@ const Hero = () => {
         >
           <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[2vh]" />
           <p className="font-sans text-[clamp(0.9rem,min(2vw,2.5vh),1.25rem)] font-light italic text-brand-ghost leading-[1.6]">
-            The world's first curated <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">AI SUPER CHAT</span> gateway for studying Śrīla Prabhupāda's books, lectures, letters, and Gauḍīya Vaiṣṇava texts through <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]"> answers directly from Prabhupāda's books.</span> 
+            The world's first curated <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">AI SUPER CHATS</span> gateway for studying Vishwaguru Śrīla Prabhupāda's lectures, letters, books, and transcendental vani through <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">answers directly sourced from Vishwaguru Śrīla Prabhupāda.</span>
           </p>
           <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[2vh]" />
         </motion.div>
@@ -295,7 +315,7 @@ const Hero = () => {
           className="flex flex-wrap justify-start gap-[2vh] mt-[2vh]"
         >
           <a href="#library" className="group relative inline-flex items-center gap-3 px-[4vw] md:px-10 py-[1.5vh] md:py-4 bg-brand-crimson text-[#F2E8D5] font-serif text-[clamp(0.6rem,1.2vh,0.68rem)] font-medium tracking-[0.2em] uppercase border border-brand-crimson-light hover:bg-brand-crimson-light hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(139,26,26,0.4)] transition-all duration-400 overflow-hidden text-center justify-center min-w-[200px]">
-            <span className="relative z-10">Open the Library</span>
+            <span className="relative z-10">Explore all AI Super Chats</span>
           </a>
         </motion.div>
 
@@ -303,9 +323,18 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.7 }}
-          className="mt-[5vh] font-serif text-[clamp(0.5rem,1.2vh,0.58rem)] tracking-[0.3em] uppercase text-brand-ink-faded"
+          className="mt-[5vh] font-serif text-[clamp(0.5rem,1.2vh,0.58rem)] tracking-[0.35em] uppercase text-brand-gold/80"
         >
-          Search deeply &nbsp;·&nbsp; Verify directly &nbsp;·&nbsp; Stay anchored in Prabhupāda's teachings
+          Search deeply &nbsp;·&nbsp; Verify directly &nbsp;·&nbsp; Stay anchored in Vishwaguru Śrīla Prabhupāda's Vani
+        </motion.p>
+
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 1.9 }}
+          className="mt-4 font-sans text-[clamp(0.62rem,1.1vh,0.72rem)] text-brand-ghost/80 italic leading-relaxed max-w-[550px]"
+        >
+          We consider this platform successful only if it inspires visitors to study Vishwaguru Śrīla Prabhupāda's original books directly from authorized BBT publications.
         </motion.p>
       </div>
     </section>
@@ -330,7 +359,7 @@ const TrustSection = () => {
             Not trained to <em className="text-brand-gold-bright italic drop-shadow-[0_0_15px_rgba(212,168,67,0.3)]">impress.</em><br/>Built to <span className="text-brand-gold-bright border-b border-brand-gold/30 pb-1">reference.</span>
           </h2>
           <p className="font-sans text-[1.15rem] italic text-brand-ghost leading-[1.9]">
-            Most <span className="text-brand-gold-bright font-medium not-italic">AI</span> tools generate confidence. This experience is built for traceability — helping you explore sacred texts through <span className="text-brand-gold-bright font-medium not-italic">answers directly from Prabhupāda's books.</span>
+            Most <span className="text-brand-gold-bright font-medium not-italic">AI</span> tools generate confidence. This experience is built for traceability — helping you explore sacred texts through <span className="text-brand-gold-bright font-medium not-italic">answers directly from Vishwaguru Śrīla Prabhupāda Vani.</span>
           </p>
         </motion.div>
       </div>
@@ -356,9 +385,9 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-[clamp(2.5rem,6vw,6rem)] font-bold leading-none text-brand-parchment"
+          className="font-display text-[clamp(1.8rem,4.5vw,3.5rem)] font-bold leading-tight text-brand-parchment"
         >
-          Enter the <em className="text-brand-gold-bright italic">Library</em>
+          Browse below to find all Super AI Chats and <em className="text-brand-gold-bright italic">choose your Super Chat.</em>
         </motion.h2>
       </div>
 
@@ -375,7 +404,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="group block mb-0 border border-brand-gold/20 bg-gradient-to-b from-brand-bg-raised to-brand-bg p-12 relative overflow-hidden transition-all duration-500 hover:border-brand-gold-bright/50 hover:bg-brand-bg-raised/70 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+            className="group flex flex-col h-full mb-0 border border-brand-gold/20 bg-gradient-to-b from-brand-bg-raised to-brand-bg p-12 relative overflow-hidden transition-all duration-500 hover:border-brand-gold-bright/50 hover:bg-brand-bg-raised/70 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
           >
             <div className="absolute -right-4 -bottom-10 font-display text-[14rem] font-black leading-none text-brand-gold/5 select-none pointer-events-none transition-all duration-1000 ease-in-out group-hover:text-brand-gold/10 group-hover:-translate-y-[70%]">
               0{i + 1}
@@ -391,9 +420,10 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
             <p className="font-sans text-[0.92rem] text-brand-ghost leading-[1.75] mb-7 relative z-10">
               {notebook.description}
             </p>
-            <div className="inline-flex items-center gap-2.5 font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold transition-all duration-300 group-hover:text-brand-gold-bright group-hover:gap-4 relative z-10">
-              <div className="w-5 h-[1px] bg-current transition-all duration-300 group-hover:w-8" />
-              Open Superchat
+            <div className="mt-auto pt-4 relative z-10 flex">
+              <span className="inline-flex items-center justify-center px-6 py-3 bg-brand-crimson text-[#F2E8D5] font-serif text-[clamp(0.6rem,1.1vh,0.68rem)] font-medium tracking-[0.2em] uppercase border border-brand-crimson-light rounded shadow-[0_4px_15px_rgba(139,26,26,0.25)] group-hover:bg-brand-crimson-light group-hover:shadow-[0_8px_30px_rgba(139,26,26,0.5)] group-hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300 ease-out">
+                Open Super Chat
+              </span>
             </div>
           </motion.a>
         ))}
@@ -404,7 +434,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
 
 const BenefitsSection = () => {
   const benefits = [
-    { num: '1', title: "Answers directly from Prabhupāda's books", desc: "Every response traceable to actual passages in the text" },
+    { num: '1', title: "Answers directly from Vishwaguru Śrīla Prabhupāda's Vani", desc: "Every response traceable to actual passages in the text" },
     { num: '2', title: "Semantic search beyond keywords", desc: "Ask naturally, receive meaningfully from within the corpus" },
     { num: '3', title: "Faster class preparation", desc: "Compress hours of study into precise, referenced inquiry" },
     { num: '4', title: "Focused by collection", desc: "Each portal is curated for depth within its specific corpus" },
@@ -423,8 +453,8 @@ const BenefitsSection = () => {
              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="font-serif text-[0.6rem] tracking-[0.35em] uppercase text-brand-gold mb-6 block">Why Study This Way</span>
-            <h2 className="font-display text-[clamp(2.5rem,6vw,6rem)] font-bold leading-none text-brand-parchment">
-              Six reasons<br/><em className="text-brand-gold-bright italic">it works</em>
+            <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-tight text-brand-parchment">
+              Six Reasons to Study Through <em className="text-brand-gold-bright italic">Vishwaguru Śrīla Prabhupāda's Vani</em>
             </h2>
           </motion.div>
           <motion.p 
@@ -434,7 +464,7 @@ const BenefitsSection = () => {
              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
              className="font-sans text-[1.1rem] italic text-brand-ghost leading-[1.85] m-0"
           >
-            These collections are not generic <span className="text-brand-gold-bright not-italic font-medium">AI</span> chatbots. They are purpose-built study environments grounded entirely in Prabhupāda's teachings — <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-2 py-0.5 rounded border border-brand-gold/20 shadow-[0_0_15px_rgba(212,168,67,0.1)]">answering from śāstra, not from the statistical center of the internet.</span>
+            These collections are not generic <span className="text-brand-gold-bright not-italic font-medium">AI Super Chats</span>. They are purpose-built study environments grounded entirely in Vishwaguru Śrīla Prabhupāda's Vani — <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-2 py-0.5 rounded border border-brand-gold/20 shadow-[0_0_15px_rgba(212,168,67,0.1)]">lectures, letters, books, morning walks, conversations, etc., not from the statistical center of the internet.</span>
           </motion.p>
         </div>
 
@@ -509,10 +539,10 @@ const ContrastSection = () => {
             <span className="font-serif text-[0.6rem] tracking-[0.25em] uppercase text-brand-ink-faded">Generic <span className="text-brand-gold-bright/70 font-semibold tracking-wider">AI</span> response</span>
           </div>
           <p className="font-display text-[0.9rem] italic font-normal text-brand-ghost mb-6">
-            Q: "How many stages of bhakti did Prabhupāda describe?"
+            Q: "How many stages of bhakti did Vishwaguru Śrīla Prabhupāda describe?"
           </p>
           <p className="font-sans text-base leading-[1.8] text-brand-ghost mb-6">
-            Śrīla Prabhupāda often described devotional service as progressing through five primary stages, beginning with śraddhā and reaching prema through a process of purification and surrender described throughout his books.
+            Vishwaguru Śrīla Prabhupāda often described devotional service as progressing through five primary stages, beginning with śraddhā and reaching prema through a process of purification and surrender described throughout his books.
           </p>
           <span className="inline-flex items-center gap-2 font-serif text-[0.58rem] tracking-[0.2em] uppercase px-4 py-2 border border-brand-ink-faded/20 text-brand-ink-faded">
             ⚠ No citation · Unverifiable
@@ -530,17 +560,17 @@ const ContrastSection = () => {
               <div className="w-2 h-2 rounded-full shrink-0 bg-brand-gold-bright shadow-[0_0_10px_rgba(212,168,67,0.8)] animate-pulse" />
               <span className="font-serif text-[0.6rem] tracking-[0.2em] uppercase text-brand-gold-bright flex items-center justify-center gap-2">
                 <span className="bg-brand-crimson border border-brand-crimson-light px-2 py-1 rounded shadow-[0_0_15px_rgba(139,26,26,0.3)] text-[#F2E8D5] font-bold">AI SUPER CHAT</span>
-                · directly from Prabhupāda's books
+                · directly from Vishwaguru Śrīla Prabhupāda's Vani
               </span>
             </div>
             <p className="font-display text-[0.9rem] italic font-normal text-brand-ghost mb-6">
-              Q: "How many stages of bhakti did Prabhupāda describe?"
+              Q: "How many stages of bhakti did Vishwaguru Śrīla Prabhupāda describe?"
             </p>
             <p className="font-sans text-base leading-[1.8] text-brand-parchment mb-6">
-              According to the <span className="text-brand-gold-bright font-medium underline decoration-brand-gold/50 underline-offset-4">Nectar of Devotion, Chapter 18</span>, Prabhupāda outlines the sixty-four items of devotional service and discusses the progressive stages leading to prema. <span className="inline-block mt-2 sm:mt-0 sm:ml-2 bg-brand-gold/15 px-2 py-0.5 rounded border text-[0.85em] border-brand-gold/30 text-brand-gold-bright shadow-[0_0_15px_rgba(212,168,67,0.15)] font-mono whitespace-nowrap">[Source: NOD Ch. 18, para. 4]</span>
+              According to the <span className="text-brand-gold-bright font-medium underline decoration-brand-gold/50 underline-offset-4">Nectar of Devotion, Chapter 18</span>, Vishwaguru Śrīla Prabhupāda outlines the sixty-four items of devotional service and discusses the progressive stages leading to prema. <span className="inline-block mt-2 sm:mt-0 sm:ml-2 bg-brand-gold/15 px-2 py-0.5 rounded border text-[0.85em] border-brand-gold/30 text-brand-gold-bright shadow-[0_0_15px_rgba(212,168,67,0.15)] font-mono whitespace-nowrap">[Source: NOD Ch. 18, para. 4]</span>
             </p>
             <span className="inline-flex items-center gap-2 font-serif text-[0.58rem] tracking-[0.2em] uppercase px-4 py-2 border border-brand-gold-bright/50 bg-brand-gold/10 text-brand-gold-bright font-bold shadow-[0_0_15px_rgba(212,168,67,0.2)]">
-              ✦ Directly from Prabhupāda's books · Verifiable - with citations
+              ✦ Directly from Vishwaguru Śrīla Prabhupāda's Vani · Verifiable - with citations
             </span>
             <span className="block mt-5 font-sans text-[0.82rem] italic text-brand-ink-faded">
               Precise and traceable. The passage is cited and accessible within the notebook for direct verification.
@@ -580,14 +610,14 @@ const HowItWorksSection = () => {
             {
               num: 'II',
               step: 'Step Two',
-              title: 'Retrieve from Prabhupāda\'s Books',
+              title: "Retrieve from Vishwaguru Śrīla Prabhupāda's Vani",
               body: <>The <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_10px_rgba(212,168,67,0.1)] border border-brand-gold/20 text-[0.85em] tracking-wider uppercase">AI SUPER CHAT</span> searches only within the curated texts of each collection. There is no external internet, no hallucinated authority — only what is actually written in the śāstra.</>
             },
             {
               num: 'III',
               step: 'Step Three',
               title: 'Verify in the Text',
-              body: 'Every answer arrives with its exact reference in Prabhupāda\'s books. Return to the original passage. Read it in full context. The library always leads back to the book.'
+              body: "Every answer arrives with its exact reference in Vishwaguru Śrīla Prabhupāda's Vani. Return to the original passage. Read it in full context. The library always leads back to the book."
             }
           ].map((item, i) => (
             <motion.div 
@@ -624,15 +654,15 @@ const Footer = () => {
   return (
     <footer className="py-20 px-[5vw] text-center border-t border-brand-gold/25 bg-brand-bg">
       <span className="font-display text-[3.5rem] font-black italic text-brand-gold/25 leading-none mb-10 block">
-        B
+        SP
       </span>
       <div className="font-serif text-[0.72rem] tracking-[0.25em] uppercase text-brand-gold mb-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-        Bhaktivedānta 
+        Srila Prabhupada 
         <span className="bg-brand-crimson border border-brand-crimson-light text-[#F2E8D5] px-2 py-1 rounded text-[0.65rem] font-bold tracking-widest shadow-[0_0_15px_rgba(139,26,26,0.4)]">AI SUPER CHAT</span>
       </div>
       <div className="w-[120px] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-10" />
       <p className="font-serif text-[0.75rem] text-brand-gold/60 uppercase tracking-[0.2em] mb-10">
-        Made for the pleasure of Śrīla Prabhupāda
+        Made for the pleasure of Vishwaguru Śrīla Prabhupāda
       </p>
       <div className="w-[120px] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-10" />
       <ul className="flex flex-col md:flex-row justify-center items-center gap-8 list-none mb-10 p-0 m-0">
@@ -650,16 +680,22 @@ const Footer = () => {
       <div className="font-sans text-[0.75rem] text-brand-ink-faded/60 leading-[1.8] max-w-[800px] mx-auto text-left space-y-4">
         <h4 className="font-bold text-[0.8rem] text-center text-brand-ink-faded uppercase tracking-widest mb-4">Disclaimer</h4>
         <p>
-          This page curates access points for studying Gauḍīya Vaiṣṇava literature. It is not owned by, affiliated with, or endorsed by ISKCON, the Bhaktivedanta Book Trust (BBT), or any related entity.
+          This tool has no direct connection with BBT or any related entity. It has been independently developed by enthusiastic followers and well-wishers solely to facilitate, encourage, and deepen the study of Vishwaguru Śrīla Prabhupāda's original books.
         </p>
         <p>
-          All books, writings, and teachings by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada — including Bhagavad-gita As It Is, Srimad-Bhagavatam, and other titles — are the exclusive property of BBT/ISKCON. All copyrights and intellectual property rights remain solely with them.
+          All books, writings, and vani by His Divine Grace A.C. Bhaktivedanta Swami Vishwaguru Śrīla Prabhupāda — including Bhagavad-gita As It Is, Srimad-Bhagavatam, and other titles — are the exclusive property of BBT/ISKCON. All copyrights and intellectual property rights remain solely with them.
         </p>
         <p>
-          The research tools provided here, including integration with NotebookLM, are offered strictly as a convenience for the general public to study Srila Prabhupada's books more deeply. NotebookLM is an independent product developed and operated by Google; this website merely facilitates access to it for research purposes.
+          The research tools provided here, including integration with NotebookLM, are offered strictly as a convenience for the general public to study Vishwaguru Śrīla Prabhupāda's books more deeply.
         </p>
         <p>
-          We have no intention of replacing or diverting readers from Srila Prabhupada's original books. Our sole purpose is to deepen interest in his teachings and to help visitors conduct more meaningful research. We sincerely encourage everyone to read the original BBT publications and strengthen their personal connection with Srila Prabhupada.
+          NotebookLM is an independent product developed and operated by Google; this website merely facilitates access to it for research purposes.
+        </p>
+        <p>
+          We have no intention of replacing or diverting readers from Vishwaguru Śrīla Prabhupāda's original books. Our sole purpose is to deepen interest in his vani and to help visitors conduct more meaningful research. We sincerely encourage everyone to read the original books and publications of Vishwaguru Śrīla Prabhupāda as published by BBT and strengthen their personal connection with Vishwaguru Śrīla Prabhupāda.
+        </p>
+        <p>
+          This platform exists solely for convenience, encouragement, research, and deeper study. Its purpose is to inspire visitors to read Vishwaguru Śrīla Prabhupāda's books more deeply, carefully, and thoroughly rather than replace direct engagement with the original texts. We consider this platform successful only if it inspires visitors to study Vishwaguru Śrīla Prabhupāda's original books directly from authorized BBT publications.
         </p>
       </div>
     </footer>
