@@ -165,8 +165,8 @@ const Navbar = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5vw] py-4 transition-all duration-700 ${scrolled ? 'bg-brand-bg/95 backdrop-blur-md border-b border-brand-gold/25 py-3' : 'bg-transparent'}`}>
-        <a href="#hero" className="font-serif text-[0.78rem] tracking-[0.18em] uppercase text-brand-gold-bright decoration-transparent transition-colors hover:text-brand-gold-pale flex items-center gap-2">
-          Srila Prabhupada <span className="hidden sm:inline-block bg-brand-crimson text-[#F2E8D5] px-1.5 py-0.5 rounded text-[0.55rem] font-bold tracking-widest shadow-[0_0_10px_rgba(139,26,26,0.3)] border border-brand-crimson-light">AI SUPER CHAT</span>
+        <a href="#hero" className="font-serif text-[0.78rem] tracking-[0.16em] uppercase text-brand-gold-bright decoration-transparent transition-colors hover:text-brand-gold-pale flex items-center gap-2">
+          Vishwaguru Śrīla Prabhupāda <span className="hidden sm:inline-block bg-brand-crimson text-[#F2E8D5] px-1.5 py-0.5 rounded text-[0.55rem] font-bold tracking-widest shadow-[0_0_10px_rgba(139,26,26,0.3)] border border-brand-crimson-light">AI SUPER CHAT</span>
         </a>
         <div className="flex items-center gap-2 xs:gap-4 md:gap-6">
           <ul className="hidden md:flex gap-12 list-none m-0 items-center">
@@ -332,9 +332,9 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.9 }}
-          className="mt-1.5 md:mt-2.5 font-sans text-[clamp(0.58rem,0.9vw,0.68rem)] text-brand-ghost/80 italic leading-relaxed max-w-[550px]"
+          className="mt-1.5 md:mt-2.5 font-sans text-[clamp(0.5rem,0.75vw,0.58rem)] text-brand-ghost/80 italic leading-relaxed max-w-[550px]"
         >
-          We consider this platform successful only if it inspires visitors to study Vishwaguru Śrīla Prabhupāda's original books directly from authorized BBT publications.
+          We consider this platform successful only if it inspires visitors to procure and study Vishwaguru Śrīla Prabhupāda's original printed books directly from authorized BBT publications. Please see the <a href="#disclaimer" className="underline not-italic font-semibold text-brand-gold hover:text-brand-gold-bright transition-colors">disclaimer</a> at the end of this page.
         </motion.p>
       </div>
     </section>
@@ -359,7 +359,7 @@ const TrustSection = () => {
             Not trained to <em className="text-brand-gold-bright italic drop-shadow-[0_0_15px_rgba(212,168,67,0.3)]">impress.</em><br/>Built to <span className="text-brand-gold-bright border-b border-brand-gold/30 pb-1">reference.</span>
           </h2>
           <p className="font-sans text-[1.15rem] italic text-brand-ghost leading-[1.9]">
-            Most <span className="text-brand-gold-bright font-medium not-italic">AI</span> tools generate confidence. This experience is built for traceability — helping you explore sacred texts through <span className="text-brand-gold-bright font-medium not-italic">answers directly from Vishwaguru Śrīla Prabhupāda Vani.</span>
+            Most <span className="text-brand-gold-bright font-medium not-italic">AI</span> tools generate confidence. This experience is built for traceability — helping you explore sacred texts through <span className="text-brand-gold-bright font-medium not-italic">answers directly from Vishwaguru Śrīla Prabhupāda Vani and procure his original books.</span>
           </p>
         </motion.div>
       </div>
@@ -414,7 +414,7 @@ const LibrarySection = ({ onOpenPortal }: { onOpenPortal: (link: string) => void
               {notebook.vol}
               <div className="flex-1 h-[1px] bg-brand-gold/25" />
             </div>
-            <div className="mb-3.5 inline-block self-start px-2.5 py-1 bg-brand-crimson text-[#F2E8D5] text-[0.62rem] sm:text-[0.68rem] font-serif tracking-[0.12em] uppercase rounded shadow-[0_2px_5px_rgba(139,26,26,0.2)] border border-brand-crimson-light/40 relative z-10 select-none">
+            <div className="mb-3.5 inline-block self-start px-2.5 py-1 bg-black text-[#F2E8D5] border border-brand-gold/30 text-[0.62rem] sm:text-[0.68rem] font-serif tracking-[0.12em] uppercase rounded shadow-[0_2px_5px_rgba(0,0,0,0.35)] relative z-10 select-none">
               Vishwaguru Śrīla Prabhupāda's
             </div>
             <h3 className="font-display text-[1.35rem] font-bold text-brand-parchment mb-3 leading-[1.3] relative z-10">
@@ -670,7 +670,7 @@ const Footer = () => {
       </div>
       <div className="w-[120px] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-10" />
       <p className="font-serif text-[0.75rem] text-brand-gold/60 uppercase tracking-[0.2em] mb-10">
-        Made for the pleasure of Vishwaguru Śrīla Prabhupāda
+        Made for the pleasure of Vishwaguru Śrīla Prabhupāda & Vaishnavas
       </p>
       <div className="w-[120px] h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent mx-auto my-10" />
       <ul className="flex flex-col md:flex-row justify-center items-center gap-8 list-none mb-10 p-0 m-0">
@@ -685,7 +685,7 @@ const Footer = () => {
           </li>
         ))}
       </ul>
-      <div className="font-sans text-[0.75rem] text-brand-ink-faded/60 leading-[1.8] max-w-[800px] mx-auto text-left space-y-4">
+      <div id="disclaimer" className="scroll-mt-24 font-sans text-[0.75rem] text-brand-ink-faded/60 leading-[1.8] max-w-[800px] mx-auto text-left space-y-4">
         <h4 className="font-bold text-[0.8rem] text-center text-brand-ink-faded uppercase tracking-widest mb-4">Disclaimer</h4>
         <p>
           This tool has no direct connection with BBT or any related entity. It has been independently developed by enthusiastic followers and well-wishers solely to facilitate, encourage, and deepen the study of Vishwaguru Śrīla Prabhupāda's original books.
