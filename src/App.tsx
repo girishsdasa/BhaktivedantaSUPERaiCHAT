@@ -334,7 +334,7 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 1.9 }}
           className="mt-1.5 md:mt-2.5 font-sans text-[clamp(0.5rem,0.75vw,0.58rem)] text-brand-ghost/80 italic leading-relaxed max-w-[550px]"
         >
-          We consider this platform successful only if it inspires visitors to procure and study Vishwaguru Śrīla Prabhupāda's original printed books directly from authorized BBT publications. Please see the <a href="#disclaimer" className="underline not-italic font-semibold text-brand-gold hover:text-brand-gold-bright transition-colors">disclaimer</a> at the end of this page.
+          * We consider this platform successful only if it inspires visitors to procure and study Vishwaguru Śrīla Prabhupāda's original printed books directly from authorized BBT publications. Please see the <a href="#disclaimer" className="underline not-italic font-semibold text-brand-gold hover:text-brand-gold-bright transition-colors">disclaimer</a> at the end of this page.
         </motion.p>
       </div>
     </section>
