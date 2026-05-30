@@ -688,22 +688,16 @@ const Footer = () => {
       <div id="disclaimer" className="scroll-mt-24 font-sans text-[0.75rem] text-brand-ink-faded/60 leading-[1.8] max-w-[800px] mx-auto text-left space-y-4">
         <h4 className="font-bold text-[0.8rem] text-center text-brand-ink-faded uppercase tracking-widest mb-4">Disclaimer</h4>
         <p>
-          This tool has no direct connection with BBT or any related entity. It has been independently developed by enthusiastic followers and well-wishers solely to facilitate, encourage, and deepen the study of Vishwaguru Śrīla Prabhupāda's original books.
+          All books, writings, and vani by His Divine Grace A.C. Bhaktivedanta Swami Vishwaguru Śrīla Prabhupāda — including Bhagavad-gita As It Is, Srimad-Bhagavatam, and other titles — are the exclusive property of BBT. All copyrights and intellectual property rights remain solely with BBT.
         </p>
         <p>
-          All books, writings, and vani by His Divine Grace A.C. Bhaktivedanta Swami Vishwaguru Śrīla Prabhupāda — including Bhagavad-gita As It Is, Srimad-Bhagavatam, and other titles — are the exclusive property of BBT/ISKCON. All copyrights and intellectual property rights remain solely with them.
+          NotebookLM by Google is an independent platform. It has been customised into these tools by some enthusiastic followers and well-wishers solely to facilitate, encourage, and deepen the study of Vishwaguru Śrīla Prabhupāda's original books. The research tools provided here are offered strictly as a convenience to help the visitors study Vishwaguru Śrīla Prabhupāda's original books more deeply. This tool has no direct connection with BBT or any related entity.
         </p>
         <p>
-          The research tools provided here, including integration with NotebookLM, are offered strictly as a convenience for the general public to study Vishwaguru Śrīla Prabhupāda's books more deeply.
+          Our sole purpose is to deepen interest in his Vishwaguru Śrīla Prabhupāda vani and to help visitors conduct more meaningful research. We sincerely encourage everyone to read the original books and publications of Vishwaguru Śrīla Prabhupāda, as published by BBT, and to strengthen their personal connection with Vishwaguru Śrīla Prabhupāda. These tools cannot offer a systematic, chapter-by-chapter association with Vishwaguru Srila Prabhupada as he guides you through your study in his original books.
         </p>
         <p>
-          NotebookLM is an independent product developed and operated by Google; this website merely facilitates access to it for research purposes.
-        </p>
-        <p>
-          We have no intention of replacing or diverting readers from Vishwaguru Śrīla Prabhupāda's original books. Our sole purpose is to deepen interest in his vani and to help visitors conduct more meaningful research. We sincerely encourage everyone to read the original books and publications of Vishwaguru Śrīla Prabhupāda as published by BBT and strengthen their personal connection with Vishwaguru Śrīla Prabhupāda.
-        </p>
-        <p>
-          This platform exists solely for convenience, encouragement, research, and deeper study. Its purpose is to inspire visitors to read Vishwaguru Śrīla Prabhupāda's books more deeply, carefully, and thoroughly rather than replace direct engagement with the original texts. We consider this platform successful only if it inspires visitors to study Vishwaguru Śrīla Prabhupāda's original books directly from authorized BBT publications.
+          We consider this platform successful only if it inspires visitors to procure and study Vishwaguru Śrīla Prabhupāda's original printed books directly from authorised BBT publications.
         </p>
       </div>
     </footer>
