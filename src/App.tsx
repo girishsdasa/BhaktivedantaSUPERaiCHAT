@@ -303,7 +303,7 @@ const Hero = () => {
         >
           <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[1.2vh] md:my-[1.5vh]" />
           <p className="font-sans text-[clamp(0.82rem,1.1vw,1.05rem)] font-light italic text-brand-ghost leading-[1.5] md:leading-[1.6]">
-            The world's first curated <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">AI SUPER CHATS</span> gateway for studying Vishwaguru Śrīla Prabhupāda's lectures, letters, books, and transcendental vani through <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">answers directly sourced from Vishwaguru Śrīla Prabhupāda.</span>
+            The world's first curated <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">AI SUPER CHATS</span> gateway for studying Vishwaguru Śrīla Prabhupāda's lectures, letters, books, and transcendental vani* through <span className="text-brand-gold-bright font-medium not-italic bg-brand-gold/10 px-1.5 py-0.5 rounded shadow-[0_0_15px_rgba(212,168,67,0.15)] border border-brand-gold/20 text-[0.8em] tracking-[0.05em]">answers directly sourced from Vishwaguru Śrīla Prabhupāda.</span>
           </p>
           <div className="h-[1px] w-[50%] bg-gradient-to-r from-brand-gold-bright/50 to-transparent my-[1.2vh] md:my-[1.5vh]" />
         </motion.div>
@@ -688,16 +688,16 @@ const Footer = () => {
       <div id="disclaimer" className="scroll-mt-24 font-sans text-[0.75rem] text-brand-ink-faded/60 leading-[1.8] max-w-[800px] mx-auto text-left space-y-4">
         <h4 className="font-bold text-[0.8rem] text-center text-brand-ink-faded uppercase tracking-widest mb-4">Disclaimer</h4>
         <p>
-          All books, writings, and vani by His Divine Grace A.C. Bhaktivedanta Swami Vishwaguru Śrīla Prabhupāda — including Bhagavad-gita As It Is, Srimad-Bhagavatam, and other titles — are the exclusive property of BBT. All copyrights and intellectual property rights remain solely with BBT.
+          * All books, writings, and vani by His Divine Grace A.C. Bhaktivedanta Swami Vishwaguru Śrīla Prabhupāda — including Bhagavad-gita As It Is, Srimad-Bhagavatam, and other titles — are the exclusive property of BBT. All copyrights and intellectual property rights remain solely with BBT.
         </p>
         <p>
-          NotebookLM by Google is an independent platform. It has been customised into these tools by some enthusiastic followers and well-wishers solely to facilitate, encourage, and deepen the study of Vishwaguru Śrīla Prabhupāda's original books. The research tools provided here are offered strictly as a convenience to help the visitors study Vishwaguru Śrīla Prabhupāda's original books more deeply. This tool has no direct connection with BBT or any related entity.
+          * NotebookLM by Google is an independent platform. It has been customised into these tools by some enthusiastic followers and well-wishers solely to facilitate, encourage, and deepen the study of Vishwaguru Śrīla Prabhupāda's original books. The research tools provided here are offered strictly as a convenience to help the visitors study Vishwaguru Śrīla Prabhupāda's original books more deeply. This tool has no direct connection with BBT or any related entity.
         </p>
         <p>
-          Our sole purpose is to deepen interest in his Vishwaguru Śrīla Prabhupāda vani and to help visitors conduct more meaningful research. We sincerely encourage everyone to read the original books and publications of Vishwaguru Śrīla Prabhupāda, as published by BBT, and to strengthen their personal connection with Vishwaguru Śrīla Prabhupāda. These tools cannot offer a systematic, chapter-by-chapter association with Vishwaguru Srila Prabhupada as he guides you through your study in his original books.
+          * Our sole purpose is to deepen interest in his Vishwaguru Śrīla Prabhupāda vani and to help visitors conduct more meaningful research. We sincerely encourage everyone to read the original books and publications of Vishwaguru Śrīla Prabhupāda, as published by BBT, and to strengthen their personal connection with Vishwaguru Śrīla Prabhupāda. These tools cannot offer a systematic, chapter-by-chapter association with Vishwaguru Srila Prabhupada as he guides you through your study in his original books.
         </p>
         <p>
-          We consider this platform successful only if it inspires visitors to procure and study Vishwaguru Śrīla Prabhupāda's original printed books directly from authorised BBT publications.
+          * We consider this platform successful only if it inspires visitors to procure and study Vishwaguru Śrīla Prabhupāda's original printed books directly from authorised BBT publications.
         </p>
       </div>
     </footer>
